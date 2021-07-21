@@ -1,0 +1,36 @@
+<template>
+    <div>
+        <h2><span>Food Recepies</span></h2>
+        <SneakpeakFoodCards :Sneakpeaks="Sneakpeak_recepies" />
+    </div>
+</template>
+
+<script>
+
+import SneakpeakFoodCards from "@/components/Home/Sneakpeak-FoodCards.vue"
+export default {
+    name: "SneakpeakRecepies",
+    components: {
+        SneakpeakFoodCards,
+    },
+    props: {
+        Sneakpeak_recepies: Array,
+    }
+    
+}
+</script>
+<style>
+h2{
+    width: 100%; 
+    text-align: center; 
+    color: silver;
+    border-bottom: 1px solid silver; 
+    line-height: 0.1em;
+    margin: 50px 0 20px; 
+}
+
+h2 span { 
+    background:#fff; 
+    padding:0 10px; 
+}
+</style>
