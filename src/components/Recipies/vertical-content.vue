@@ -1,0 +1,53 @@
+<template>
+    <div class="container mb-5 mt-5" v-if="IsLarge">
+        <div class="row justify-content-center" v-for="(recipe,index) in recipies" :key="index">
+            <BigRecipyCard :recipe="recipe"/>
+            
+        </div>
+    </div>
+    <div class="container mb-5 mt-5" v-else>
+        <div class="row justify-content-center" v-for="(recipe,index) in recipies" :key="index">
+            <SmallRecipeCard :recipe="recipe"/>
+        </div>
+    </div>
+    
+</template>
+
+
+<script>
+import BigRecipyCard from "@/components/Recipies/BigFoodRecipyCard.vue"
+import SmallRecipeCard from "@/components/Recipies/SmallFoodRecipyCard.vue"
+export default {
+    data(){
+        return{
+            IsLarge: true,
+        }
+    },
+    props: {
+        recipies: Array,
+    },
+    components: {
+        BigRecipyCard,
+        SmallRecipeCard,
+    },
+    created() {
+        if (window.screen.width < 1200){
+            console.log("Small")
+            this.IsLarge = false
+        }
+        else{
+            console.log("Large")
+            this.IsLarge = true
+        }
+    },
+}
+</script>
+
+
+<style scoped>
+.container{
+    margin-bottom: 110px !important;
+    width: 100%;
+}
+
+</style>

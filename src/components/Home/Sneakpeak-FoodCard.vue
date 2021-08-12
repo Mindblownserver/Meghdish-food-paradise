@@ -39,6 +39,7 @@ export default {
     background-color: rgb(255, 255, 255);
     border-radius: 20px;
 }
+
 .info{
     color: rgb(112, 108, 108);
     line-height: 17px;

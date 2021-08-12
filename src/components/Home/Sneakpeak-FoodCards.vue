@@ -46,6 +46,14 @@ export default {
   grid-gap: 1em;
 }
 
+@media only screen and (max-width: 1000px) {
+  /* For mobile phones: */
+  .card-list{
+    width: 100%;
+    display: block;
+    
+  }
+}
 
 
 ul {

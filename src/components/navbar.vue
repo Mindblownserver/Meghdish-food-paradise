@@ -1,8 +1,8 @@
 <template>
     <nav>
         <div class="menu-item"><a style="color: white;" href="/">Home</a></div>
-        <div class="menu-item"><a style="color: white;" href="/recipies">Recepies</a></div>
-        <div class="menu-item"><a style="color: white;" href="#">Tricks</a></div>
+        <div class="menu-item"><a style="color: white;" href="/recipies/all">Recepies</a></div>
+        <div class="menu-item"><a style="color: white;" href="/tricks">Tricks</a></div>
         <div class="menu-item"><a style="color: white;" href="/about">About</a></div>
     </nav>
 </template>

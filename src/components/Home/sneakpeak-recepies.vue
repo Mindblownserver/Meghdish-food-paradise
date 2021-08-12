@@ -19,7 +19,7 @@ export default {
     
 }
 </script>
-<style>
+<style scoped>
 h2{
     width: 100%; 
     text-align: center; 

@@ -19,6 +19,13 @@ export default {
   components: {
     Navbar,
     Foooter
+  },
+  data() {
+    return {
+      largeScreen: 1196,
+      MediumScreen:800,
+      SmallScreen:400,
+    }
   }
 
 }
@@ -30,7 +37,6 @@ export default {
 * {
   padding: 0;
   font-family: 'Satisfy', cursive;
-  color: rgb(3, 25, 66);
 }
 #app{
   text-align: center;

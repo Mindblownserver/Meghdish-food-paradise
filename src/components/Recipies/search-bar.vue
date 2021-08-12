@@ -1,26 +1,46 @@
 <template>
     <div class="search">
         <h1>Discover</h1>
-        <div class="boxContainer">
-            <table class="elementsContainer">
-                <tr>
-                    <td>
-                        <input type="text" placeholder="Search recipe" class="Search">
-                    </td>
-                    <td>
-                        <a href="#">
-                            <i class="fas fa-search"></i>
-                        </a>
-                    </td>
-                </tr>
-            </table>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Type food name here" id="searchbar" aria-describedby="basic-addon2" @keyup="search">
+        </div>
+    </div>
+    <!--Chips-->
+    
+    <div class="Container">
+        <div class="row">
+            <div v-for="(FdTag,index) in FdTags" :key="index">
+                <router-link v-bind:to="'/recipies/' + FdTag.id"><Chip :text="FdTag.text" :BG="FdTag.color" @click="filter_food(FdTag.text)"/></router-link>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
+import Chip from "../chip.vue"
 export default {
-    name: "Seachbar"
+    name: "Seachbar",
+    components: {
+        Chip
+    },
+    props: {
+        FdTags: Array,
+    },
+    emits: ["all", "filter", "search"],
+    methods: {
+        filter_food(prop){
+            if (prop ==="All") {
+                this.$emit("all")
+            }
+            else{
+                this.$emit("filter", prop)
+            }
+        },
+        search(){
+            const bar = document.getElementById('searchbar').value.toLowerCase();
+            this.$emit('search', bar)
+        }
+    },
 }
 </script>
 
@@ -28,33 +48,28 @@ export default {
 .search{
     text-align: start;
     margin-top: 10px;
-    margin-left: 100px;
-}
-.boxContainer{
-    position: relative;
-    width: 250px;
-    padding: 0px 10px;
-    border: 2px solid black;
-    border-radius: 50px;
-}
-.elementsContainter{
-    width: 100%;
-    height: 100%;
-    vertical-align: middle;
+    margin-left: 80px;
+    width: 645px;
 }
 
-.Search{
-    border: none;
-    height: 100%;
-    width: 100%;
-    padding: 0px 5px;
-    border-radius: 50px;
-    font-size: 18px;
-    font-weight: 500;
+@media only screen and (max-width: 768px){
+    .search{
+        text-align: center;
+        margin-top: 10px;
+        width: 100%;
+        padding: 10px;
+        margin-left: 0;
+    }
+    .Container{
+        margin-left: 10px;
+        margin-right: 15px;
+    }
 }
-.Search:focus{
-    outline: none;
+
+.row{
+    margin-left: 80px;
 }
+
 
 i {
     color: black;

@@ -44,16 +44,27 @@ export default {
     text-align: center;
   }
   .content h1{
-    font-size: 70px;
+    font-size: 10vw;
     padding: 15px;
+    margin: 5px;
     outline: white solid 2px;
     color: rgb(247, 253, 248);
   }
   .content p{
-    font-size: 30px;
+    font-size: 5vw;
     margin: 20px;
     color: rgb(168, 158, 158);
   }
+
+@media screen and (min-width: 1300px) {
+  .content h1{
+    font-size: 70px;
+    padding: 10px;
+  }
+  .content p{
+    font-size: 30px;
+  }
+}
 
   .content button{
     border:none;
