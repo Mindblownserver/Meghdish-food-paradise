@@ -4,7 +4,7 @@
       <div class="content">
         <h1 class="title">Meghdish Food Paradise</h1>
         <p class="caption">Creative recipies to satisfy your appatite</p>
-        <button type="button" class="btn btn-success">Browse Recepies</button> 
+        <router-link v-bind:to="'/recipies'"><button type="button" class="btn btn-success">Browse Recepies</button></router-link>
       </div>
     </div>
     <div>
