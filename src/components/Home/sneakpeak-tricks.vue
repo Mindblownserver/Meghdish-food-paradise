@@ -22,6 +22,8 @@ export default {
         this.SneakPeak_Tricks= [
             {
                 id: 1,
+                Tag: ["Easy", "ForestGreen"],
+                stars: 4.0,
                 title: "Healthy morning bread",
                 desc: "Stop yeast, use milk",
                 img: "https://omnivorescookbook.com/wp-content/uploads/2019/11/1911_Easy-Milk-Bread-Rolls_001.jpg",
@@ -29,6 +31,8 @@ export default {
             },
             {
                 id: 1,
+                Tag: ["Easy", "ForestGreen"],
+                stars: 4.0,
                 title: "Healthy morning bread",
                 desc: "Stop yeast, use milk",
                 img: "https://omnivorescookbook.com/wp-content/uploads/2019/11/1911_Easy-Milk-Bread-Rolls_001.jpg",
@@ -36,6 +40,8 @@ export default {
             },
             {
                 id: 1,
+                Tag: ["Easy", "ForestGreen"],
+                stars: 4.0,
                 title: "Healthy morning bread",
                 desc: "Stop yeast, use milk",
                 img: "https://omnivorescookbook.com/wp-content/uploads/2019/11/1911_Easy-Milk-Bread-Rolls_001.jpg",
@@ -43,6 +49,8 @@ export default {
             },
             {
                 id: 1,
+                Tag: ["Easy", "ForestGreen"],
+                stars: 4.0,
                 title: "Healthy morning bread",
                 desc: "Stop yeast, use milk",
                 img: "https://omnivorescookbook.com/wp-content/uploads/2019/11/1911_Easy-Milk-Bread-Rolls_001.jpg",
@@ -50,6 +58,8 @@ export default {
             },
             {
                 id: 1,
+                Tag: ["Easy", "ForestGreen"],
+                stars: 4.0,
                 title: "Healthy morning bread",
                 desc: "Stop yeast, use milk",
                 img: "https://omnivorescookbook.com/wp-content/uploads/2019/11/1911_Easy-Milk-Bread-Rolls_001.jpg",
@@ -57,6 +67,8 @@ export default {
             },
             {
                 id: 1,
+                Tag: ["Easy", "ForestGreen"],
+                stars: 4.0,
                 title: "Healthy morning bread",
                 desc: "Stop yeast, use milk",
                 img: "https://omnivorescookbook.com/wp-content/uploads/2019/11/1911_Easy-Milk-Bread-Rolls_001.jpg",
@@ -78,7 +90,7 @@ h2{
 }
 
 h2 span { 
-    background:#fff; 
+    background:rgb(245, 245, 245); 
     padding:0 10px; 
 }
 </style>

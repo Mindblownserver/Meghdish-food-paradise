@@ -21,7 +21,7 @@ h5{
 }
 
 h5 span { 
-    background:#fff; 
+    background:rgb(245, 245, 245); 
     padding:0 10px; 
 }
 </style>

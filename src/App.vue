@@ -40,6 +40,7 @@ export default {
 }
 #app{
   text-align: center;
+  background-color: rgb(247, 247, 247);
 }
 
 </style>

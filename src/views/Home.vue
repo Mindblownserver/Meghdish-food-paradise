@@ -11,24 +11,18 @@ export default {
   name: 'Home',
   data(){
     return{
-      Sneakpeak_recepies: []
+      Sneakpeak_recepies: [],
     }
   },
   components: {
     HomeContents,
   },
   created() {
-    db.collection("SneakPeakRecepies").onSnapshot(res => {
-      const changes = res.docChanges();
-      changes.forEach(change => {
-          this.Sneakpeak_recepies.push({
-            ...change.doc.data(),
-            id: change.doc.id
-            })
-          }
-        )
+    db.collection("SneakpeakFood").get().then((Snapshots) => {
+      Snapshots.forEach((doc) => {
+          this.Sneakpeak_recepies.push(doc.data())
       })
-
+    });
   },
 };
 </script>

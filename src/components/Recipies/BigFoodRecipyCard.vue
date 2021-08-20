@@ -29,7 +29,7 @@
 
 <script>
 import Chip from "../chip.vue"
-
+//import db from "../../fb.js"
 export default {
     name: "BigRecipyCard",
     props: {
@@ -53,6 +53,15 @@ export default {
         const starPercentage = (this.recipe.stars / 5) *100;
         const starPercentageRounded = `${Math.round(starPercentage / 10) * 10}%`;
         this.Stars = starPercentageRounded;
+        // db.collection("Food recipies").add({
+        //     title: this.recipe.title,
+        //     img: this.recipe.img,
+        //     desc: this.recipe.desc,
+        //     stars: this.recipe.stars,
+        //     Time: this.recipe.Time,
+        //     Tag: [this.recipe.Tag[0], this.recipe.Tag[1]],
+        //     difficulty: [this.recipe.difficulty[0],this.recipe.difficulty[1]]
+        // })
     },
 }
 </script>

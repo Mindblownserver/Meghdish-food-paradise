@@ -3,7 +3,7 @@
     <div class="container mb-5 mt-5">
         <ul :style="gridStyle" class="card-list">
             <li v-for="(Sneakpeak, index) in Sneakpeaks" :key="index" class="card-item">
-                <SneakPeakRecepy :recepy="Sneakpeak"/>
+                <SmallRecipeCard :recipe="Sneakpeak"/>
             </li>
         </ul>
         
@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import SneakPeakRecepy from "@/components/Home/Sneakpeak-FoodCard.vue"
+import SmallRecipeCard from "@/components/Home/SmallFoodRecipyCard.vue"
 export default {
     name: "SneakpeakFoodCards",
     props: {
@@ -19,11 +19,17 @@ export default {
         id: String,
     },
     components: {
-        SneakPeakRecepy
+        SmallRecipeCard
     },
     data() {
         return {
             numberOfColumns: 3,
+        }
+    },
+    created() {
+        if (window.screen.width< 1200){
+            this.numberOfColumns = 2
+            this.gridTemplateColumns
         }
     },
     computed: {
@@ -39,6 +45,8 @@ export default {
 <style>
 .container{
     margin-bottom: 110px !important;
+    align-items: center;
+    justify-items: center;
 
 }
 .card-list {
@@ -46,7 +54,9 @@ export default {
   grid-gap: 1em;
 }
 
-@media only screen and (max-width: 1000px) {
+/*1119 is size for 2 coloumns*/
+
+@media only screen and (max-width: 768px) {
   /* For mobile phones: */
   .card-list{
     width: 100%;
