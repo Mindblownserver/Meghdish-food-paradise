@@ -3,7 +3,8 @@
         <div class="menu-item"><a style="color: white;" href="/">Home</a></div>
         <div class="menu-item"><a style="color: white;" href="/recipies/all">Recepies</a></div>
         <div class="menu-item"><a style="color: white;" href="/tricks">Tricks</a></div>
-        <div class="menu-item"><a style="color: white;" href="/about">About</a></div>
+        <div class="menu-item" ><a style="color: white;" href="/about">About</a></div>
+        <!---<div class="menu-item" style="float: right;"><a style="color: white;" href="/recipies/recipe">Join us</a></div>-->
     </nav>
 </template>
 
@@ -18,11 +19,13 @@ nav{
     position: absolute;
     display: flex;
     justify-content: flex-start;
+
 }
 nav .menu-item {
     padding: 10px 15px;
     position: relative;
     text-align: center;
+    float: left;
     border-bottom: 3px solid transparent;
     display: flex;
     transition: 0.4s;

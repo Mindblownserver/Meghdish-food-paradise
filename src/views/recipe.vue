@@ -2,7 +2,7 @@
     <header class="navbar">
         <Navbar />
     </header>
-
+    <!--Hi my name is Mohammed Yassine Kharrat and I coded this website from scratch using Vuejs-->
     <div>
         <Contents />
     </div>

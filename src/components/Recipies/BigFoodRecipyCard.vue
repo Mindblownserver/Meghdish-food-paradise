@@ -2,7 +2,7 @@
     <div class="card">
         <div class="row">
             <div class="col-md-5 inner">
-                <img :src="recipe.img" alt="" class="img-fluid">
+                <img :src="recipe.img" alt="" class="img-fluid img">
             </div>
             <div id="text" class="col-md-auto">
                 <div class="title" style="margin-bottom: 10px">
@@ -70,6 +70,10 @@ export default {
 
 *{
     transition: all 500ms ease;
+}
+
+.img{
+    width: 400rem;
 }
 
 #text{
@@ -147,6 +151,6 @@ img{
     transition: all 1.5s ease;
 }
 .card:hover img{
-    transform: scale(1.3);
+    transform: scale(1.2);
 }
 </style>

@@ -1,4 +1,5 @@
 <template>
+  
   <div>
     <HomeContents :sneakpeak_recepies="Sneakpeak_recepies"/>
   </div>
@@ -26,3 +27,9 @@ export default {
   },
 };
 </script>
+
+
+<style scoped>
+
+
+</style>

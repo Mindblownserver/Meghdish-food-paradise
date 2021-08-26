@@ -49,10 +49,10 @@ export default {
     text-align: start;
     margin-top: 10px;
     margin-left: 80px;
-    width: 645px;
+    width: 709px;
 }
 
-@media only screen and (max-width: 768px){
+@media only screen and (max-width: 792px){
     .search{
         text-align: center;
         margin-top: 10px;
@@ -64,18 +64,17 @@ export default {
         margin-left: 10px;
         margin-right: 15px;
     }
+    .row{
+        margin-left: 0px;
+        text-align: center;
+    }
 }
 
+
+@media only screen and (min-width: 792px){
 .row{
     margin-left: 80px;
 }
 
-
-i {
-    color: black;
 }
-i:hover {
-    color: rgb(66, 65, 65);
-}
-
 </style>
