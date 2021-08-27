@@ -11,6 +11,9 @@
             <p class="c">55min</p>
             <p>Pastas</p>
             <p class="text c">Posted 3 years ago</p>
+            <img src="" alt="insert photo here">
+            <img src="" alt="insert photo here">
+            <img src="" alt="insert photo here">
         </div>
         <h2></h2>
         <div class="block">

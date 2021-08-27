@@ -23,12 +23,18 @@ export default {
             IsLarge: true,
         }
     },
+    emits: ["filter"],
     props: {
         recipies: Array,
     },
     components: {
         BigRecipyCard,
         SmallRecipeCard,
+    },
+    methods: {
+        filter_food(prop){
+            this.$emit("filter", prop)
+        },
     },
     created() {
         if (window.screen.width < 1200){

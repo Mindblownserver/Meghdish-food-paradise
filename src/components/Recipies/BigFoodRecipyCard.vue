@@ -19,8 +19,7 @@
                 <h6>Total time:</h6>
                 
                 <h6 :style="{color: recipe.Tag[1]}">{{recipe.Time}}</h6>
-                <Chip :text="recipe.Tag[0]" :BG="recipe.Tag[1]"/>
-                
+                <Chip :text="recipe.Tag[0]" :BG="recipe.Tag[1]" @click="filter_food(recipe.Tag[0])"/>
                 <button class="btn" :style="{'background-color': recipe.Tag[1]}"> View recipe <i class="fa fa-arrow-right"></i></button>
             </div>
         </div>
@@ -35,9 +34,11 @@ export default {
     props: {
         recipe: Object,
     },
+    emits: ["filter"],
     data() {
         return {
             Stars: String,
+            tag_id: String
         }
     },
     components: {
@@ -46,7 +47,7 @@ export default {
     methods: {
         snippet(value){
             return value.slice (0,100) + ' ...'
-        }
+        },
     },
     created() {
         //numbers to stars
@@ -107,7 +108,7 @@ img{
 
 @media screen and (min-width: 1502px) {
     .btn{
-        left: 662px;
+        left: 550px;
     }
 }
 
