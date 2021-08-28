@@ -1,7 +1,5 @@
 <template>
-    <header class="navbar">
-        <Navbar />
-    </header>
+    
     <div style="margin-top: 50px;">
         <h1>Error 404: Page not found!</h1>
         <img src="https://img.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-5529.jpg?size=338&ext=jpg&ga=GA1.2.1216666481.1626019052" alt="">
@@ -11,12 +9,8 @@
 </template>
 
 <script>
-import Navbar from "@/components/navbar.vue"
 export default {
     name:"Error404",
-    components: {
-        Navbar
-    }
 }
 </script>
 

@@ -1,7 +1,5 @@
 <template>
-    <header class="navbar">
-        <Navbar />
-    </header>
+    
     <!--Hi my name is Mohammed Yassine Kharrat and I coded this website from scratch using Vuejs-->
     <div>
         <Contents />
@@ -11,12 +9,10 @@
 
 
 <script>
-import Navbar from "../components/navbar.vue"
 import Contents from "../components/recipe/contents.vue"
 export default {
     name: 'recipe',
     components: {
-        Navbar,
         Contents
     }
 }

@@ -1,11 +1,11 @@
 <template>
-    <nav>
-        <div class="menu-item"><a style="color: white;" href="/">Home</a></div>
-        <div class="menu-item"><a style="color: white;" href="/recipies/all">Recepies</a></div>
-        <div class="menu-item"><a style="color: white;" href="/tricks">Tricks</a></div>
-        <div class="menu-item" ><a style="color: white;" href="/about">About</a></div>
-        <!---<div class="menu-item" style="float: right;"><a style="color: white;" href="/recipies/recipe">Join us</a></div>-->
-    </nav>
+    <ul>
+        <li class="right"><a href="/">Home</a></li>
+        <li class="right"><a href="/recipies/all">Recepies</a></li>
+        <li class="right"><a href="/tricks">Tricks</a></li>
+        <li class="right"><a href="/about">About</a></li>
+        <li class="active"><a href="/signin">Signin</a></li>
+    </ul>
 </template>
 
 <script>
@@ -14,30 +14,46 @@ export default{
 }
 </script>
 
-<style >
-nav{
-    position: absolute;
-    display: flex;
-    justify-content: flex-start;
+<style scoped>
 
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
 }
-nav .menu-item {
+
+li {
+    float: left;
     padding: 10px 15px;
     position: relative;
     text-align: center;
-    float: left;
     border-bottom: 3px solid transparent;
     display: flex;
     transition: 0.4s;
 }
 
-nav .menu-item.active,
-nav .menu-item:hover{
+li a {
+  display: block;
+  text-decoration: none;
+  color: white;
+}
+
+li a:hover:not(.active) {
+  text-decoration: none;
+  color: white;
+}
+
+li.right:hover{
     background-color: #444;
+    text-decoration: none;
     border-bottom-color: rgb(0, 153, 20);
 }
 
-nav .menu-item a { 
-    text-decoration: none;
+.active {
+  background-color: #04AA6D;
+  float:right;
 }
 </style>

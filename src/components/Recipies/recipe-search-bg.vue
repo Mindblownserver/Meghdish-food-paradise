@@ -24,7 +24,7 @@ export default {
   }
   .banner-area{
     width: 100%;
-    height: 40vh;
+    height: 67vh;
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)) ,url(../../assets/food-recipe-bg.webp);
     background-size: cover;
   }
