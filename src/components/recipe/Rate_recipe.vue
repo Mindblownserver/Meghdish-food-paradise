@@ -7,7 +7,7 @@
             <div class="stars-inner"></div>
         </div>
         <div class="buttons">
-            <button type="button" class="btn btn">Success</button>
+            <button type="button" class="btn btn">Submit</button>
             <i class="far fa-smile-beam"></i>
         </div>
         

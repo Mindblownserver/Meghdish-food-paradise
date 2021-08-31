@@ -4,13 +4,27 @@
         <li class="right"><a href="/recipies/all">Recepies</a></li>
         <li class="right"><a href="/tricks">Tricks</a></li>
         <li class="right"><a href="/about">About</a></li>
-        <li class="active"><a href="/signin">Signin</a></li>
+        <div v-if="loggedIn">
+          <li class="deactive" @click="logout"><a href="#">Sign out</a></li>
+        </div>
+        <div v-else>
+          <li class="active"><a href="/signin">Sign in</a></li>
+        </div>
     </ul>
 </template>
 
 <script>
 export default{
     name: 'Navbar',
+    emits: ["logout"],
+    props: {
+      loggedIn: Boolean
+    },
+    methods: {
+      logout(){
+        this.$emit("logout")
+      }
+    },
 }
 </script>
 
@@ -54,6 +68,11 @@ li.right:hover{
 
 .active {
   background-color: #04AA6D;
+  float:right;
+}
+
+.deactive {
+  background-color: #a50000;
   float:right;
 }
 </style>

@@ -4,37 +4,30 @@
         </div>
         <div class="content">
             <div class="form">
-                <h2>Sign up</h2>
+                <h2>Login</h2>
                 <form>
                     <div class="input">
                         <span>Email</span>
-                        <input type="text" placeholder="Foulan@Foulani.com" v-model="Email" name="">
-                    </div>
-                    <div class="input">
-                        <span>Username</span>
-                        <input type="text" v-model="username" placeholder="Foulan" name="">
+                        <input type="text" v-model="Email" name="">
                     </div>
                     <div class="input">
                         <span>Password</span>
                         <input type="password" v-model="Password" name="">
                     </div>
-                    <div class="input">
-                        <span>Confirm password</span>
-                        <input type="password" v-model="confirm" name="">
-                    </div>
                     <div class="form-check form-check-inline remember">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                        <input class="form-check-input" v-model="checkbox" type="checkbox" id="inlineCheckbox1" value="option1">
                         <label class="form-check-label" for="inlineCheckbox1">Remember me</label>
                     </div>
+                    
                     <div class="input">
-                        <button type="button" class="btn" @click="createAccount">Sign up</button>
+                        <button type="button" class="btn" @click="Login">Login</button>
 
                     </div>
                     <div class="input">
-                        <p>Have an account? <a href="/login">Login</a></p>
+                        <p>Don't have an account? <a href="/signin">Sign up</a></p>
                     </div>
                 </form>
-                <h3>Sign up with social media</h3>
+                <h3>Login with social media</h3>
                 <ul class="sci">
                     <li><i class="fab fa-facebook-f"></i></li>
                     <li><i class="fab fa-google"></i></li>
@@ -51,31 +44,23 @@ export default {
     data() {
         return {
             Email: "",
-            username: "",
             Password: "",
-            confirm: "",
+            checkbox: false,
         }
     },
     methods: {
-        createAccount(){
+        async Login(){
             const auth = firebase.auth()
-            console.log(this.Email, this.Password)
-            if(this.Password === this.confirm){
-                auth.createUserWithEmailAndPassword(this.Email, this.Password).then((userCredentions) => {
-                    this.$router.replace({ path: '/' })
-                    return userCredentions.user.updateProfile({
-                        displayName: this.username
-                    })
-                }).catch(error =>{
+            console.log(this.Email, this.Password , this.checkbox)
+            await auth.setPersistence(this.checkbox ? firebase.auth.Auth.Persistence.LOCAL : firebase.auth.Auth.Persistence.SESSION).then( () => {
+                return  auth.signInWithEmailAndPassword(this.Email, this.Password).then().catch(error =>{
                     alert(error.message)
                 })
-                
-            }
-            else{
-                alert(`The password you typed doesn't match what you confirmed. Expected =>"${this.Password}" but got =>"${this.confirm}"`)
-            }
+            })
+            this.$router.replace({ path: '/' })
         }
     },
+
 
 }
 </script>

@@ -8,6 +8,7 @@
 <script>
 import HomeContents from '@/components/Home/Home-contents.vue';
 import db from "./../fb"
+
 export default {
   name: 'Home',
   data(){
@@ -24,6 +25,7 @@ export default {
           this.Sneakpeak_recepies.push(doc.data())
       })
     });
+    
   },
 };
 </script>
