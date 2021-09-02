@@ -1,7 +1,14 @@
 <template>
+  <div v-if="large">
   <header v-if="this.$route.path!== '/signin' && this.$route.path !== '/login'">
-    <Navbar :loggedIn="loggedIn" @logout="logout"/>
+    <Navbar :loggedIn="loggedIn" @logout="logout" :username="displayname" :email="email"/>
   </header>
+  </div>
+  <div v-else>
+  <header v-if="this.$route.path!== '/signin' && this.$route.path !== '/login'">
+    <Hamberger :loggedIn="loggedIn" @logout="logout" :username="displayname" :email="email" />
+  </header>
+  </div>
   
   <router-view/>
 
@@ -14,20 +21,25 @@
 <script>
 import Navbar from "@/components/navbar.vue"
 import Foooter from "@/components/Footer.vue"
+import Hamberger from "@/components/hamburger.vue"
 import firebase from 'firebase/app';
 import 'firebase/auth';
 export default {
   name: 'App',
   components: {
     Navbar,
-    Foooter
+    Foooter,
+    Hamberger
   },
   data() {
     return {
       largeScreen: 1196,
       MediumScreen:800,
-      SmallScreen:400,
+      SmallScreen:450,
+      large: false,
       loggedIn: false,
+      displayname: "",
+      email: "",
     }
   },
   methods: {
@@ -37,19 +49,30 @@ export default {
       }).catch((error) => {
         alert(error)
       });
+      this.$router.replace({path: "/"})
     }
   },
     created() {
       firebase.auth().onAuthStateChanged((user) => {
       if (user){
         this.loggedIn = true;
-        console.log("USer logged in ", user, this.loggedIn)
+        console.log("User logged is ", this.loggedIn);
+        this.displayname= user.displayName;
+        this.email = user.email;
       }
       else{
-        console.log("USer logged out")
+        console.log("User logged out")
         this.loggedIn= false;
       }
     })
+  },
+  mounted() {
+        if (window.screen.width > this.SmallScreen){
+          this.large = true;
+        }
+        else{
+          this.large = false;
+        }
   },
 
 }
