@@ -80,7 +80,7 @@ export default {
 button{
     display: block;
     margin-top: 10px;
-    width: 20%;
+    width: 150px;
     background-color: #fc9400;
     color: white;
 }

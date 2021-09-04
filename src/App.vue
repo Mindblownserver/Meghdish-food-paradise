@@ -6,7 +6,7 @@
   </div>
   <div v-else>
   <header v-if="this.$route.path!== '/signin' && this.$route.path !== '/login'">
-    <Hamberger :loggedIn="loggedIn" @logout="logout" :username="displayname" :email="email" />
+    <Hamberger :loggedIn="loggedIn" @logout="logout"/>
   </header>
   </div>
   
@@ -35,7 +35,7 @@ export default {
     return {
       largeScreen: 1196,
       MediumScreen:800,
-      SmallScreen:450,
+      SmallScreen:700,
       large: false,
       loggedIn: false,
       displayname: "",

@@ -1,7 +1,9 @@
 <template>
     <div>
         <h2><span>Food Recepies</span></h2>
-        <SneakpeakFoodCards :Sneakpeaks="Sneakpeak_recepies" />
+        <div class="center">
+            <SneakpeakFoodCards :Sneakpeaks="Sneakpeak_recepies" />
+        </div>
     </div>
 </template>
 
@@ -32,5 +34,9 @@ h2{
 h2 span { 
     background:rgb(245, 245, 245); 
     padding:0 10px; 
+}
+.center{
+    display: flex;
+    align-content: center;
 }
 </style>

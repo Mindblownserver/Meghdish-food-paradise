@@ -27,8 +27,16 @@ export default {
         }
     },
     created() {
-        if (window.screen.width< 1200){
+        if (window.screen.width< 1200 && window.screen.width > 790){
             this.numberOfColumns = 2
+            this.gridTemplateColumns
+        }
+        else if (window.screen.width > 1200) {
+            this.numberOfColumns = 3
+            this.gridTemplateColumns
+        }
+        else{
+            this.numberOfColumns = 1
             this.gridTemplateColumns
         }
     },
@@ -42,11 +50,12 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .container{
     margin-bottom: 110px !important;
+    display: flex;
     align-items: center;
-    justify-items: center;
+    justify-content: center;
 
 }
 .card-list {
@@ -55,15 +64,6 @@ export default {
 }
 
 /*1119 is size for 2 coloumns*/
-
-@media only screen and (max-width: 768px) {
-  /* For mobile phones: */
-  .card-list{
-    width: 100%;
-    display: block;
-    
-  }
-}
 
 
 ul {

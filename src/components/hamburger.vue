@@ -1,4 +1,5 @@
 <template>
+    <h3 class="title">Hei</h3>
     <nav>
         <input type="checkbox" name="check" id="check">
         <button class="menu" onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'));document.getElementById('check').checked=!document.getElementById('check').checked;" aria-label="Main Menu">
@@ -47,6 +48,14 @@ export default {
     text-decoration: none;
     list-style: none;
     box-sizing: border-box;
+}
+
+
+.title{
+  position: absolute;
+  margin-left: 20px;
+  color: white;
+  margin-top: 5px;
 }
 
 #check{

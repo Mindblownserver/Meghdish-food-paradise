@@ -29,11 +29,15 @@ export default {
 <style scoped>
 *{
     color: black;
-    display: block;
+    display: flex;
     text-align: start;
-    margin-left: 8px;
     width: 100%;
-    margin-top: 10px;
+    margin-top: 50px;
 }
 
+@media only screen and (max-width: 868px){
+    *{
+        width: 95vw;
+    }
+}
 </style>

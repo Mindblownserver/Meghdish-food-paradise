@@ -1,7 +1,7 @@
 <template>
     <div class="card">
         <div class="title">
-            <h1 class="mini_title"> Spaghetti with meat balls</h1>
+            <h1 class="mini_title Title"> Spaghetti with meat balls</h1>
             <span class="c"><i class="fas fa-star "></i>
             <i class="fas fa-star "></i>
             <i class="fas fa-star "></i>
@@ -151,5 +151,11 @@ h2{
 }
 .spacer{
     margin-top: 15px;
+}
+
+@media only screen and (max-width: 588px){
+    .Title{
+        font-size: 7vw;
+    }
 }
 </style>

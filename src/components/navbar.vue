@@ -1,13 +1,16 @@
 <template>
-    <ul>
-        <li class="right disappear"><a href="/">Home</a></li>
-        <li class="right disappear"><a href="/recipies/all">Recepies</a></li>
-        <li class="right disappear"><a href="/tricks">Tricks</a></li>
-        <li class="right disappear"><a href="/about">About</a></li>
+    <ul class="root">
+        <h3 class="title">Something</h3>
+        <ul class="middle">
+          <li class="right disappear"><a href="/">Home</a></li>
+          <li class="right disappear"><a href="/recipies/all">Recepies</a></li>
+          <li class="right disappear"><a href="/tricks">Tricks</a></li>
+          <li class="right disappear"><a href="/about">About</a></li>
+        </ul>
         <div v-if="loggedIn">
           <li class="deactive disappear">
-            <a href="#">Account</a>
-            <i class="fas fa-chevron-down"></i>
+            <button href="#">Account
+            <i class="fas fa-chevron-down"></i></button>
             <div class="dropdown-content">
               <h5 style="margin-top: 20px;">{{username}}</h5>
               <p style="color: silver;">{{email}}</p>
@@ -35,7 +38,8 @@ export default{
     methods: {
       logout(){
         this.$emit("logout")
-      }
+      },
+      
     },
 }
 </script>
@@ -46,8 +50,7 @@ export default{
 .disappear{
   display: none;
 } */
-
-ul {
+.root {
   margin: 0;
   padding: 0;
   position: absolute;
@@ -57,9 +60,23 @@ ul {
   background-color: #333;
 }
 
+.middle{
+  display: flex;
+  justify-content: center;
+  margin-bottom: -53px;
+}
+
+.title{
+  position: absolute;
+  color: white;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
 li {
     
     float: left;
+    margin-left: 35px;
     padding: 10px 15px;
     position: relative;
     text-align: center;
@@ -97,14 +114,16 @@ li.right:hover{
   float:right;
 }
 .dropdown-content {
-  display: none;
+  display: block;
   border-radius: 5px;
   position: absolute;
   background-color: #f9f9f9;
   min-width: 300px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
-  transform: translateX(-198px) translateY(30px);
+  opacity: 0;
+  transform: translateX(100px) translateY(40px);
+  transition: all .9s cubic-bezier(0.35,-0.01, 0.21, 0.97);
 }
 .dropdown-content a {
   float: none;
@@ -120,8 +139,13 @@ li.right:hover{
   background-color: #ddd;
 }
 
-.deactive:hover .dropdown-content {
-  display: block;
+#check{
+  display: none;
+}
+
+button:focus ~.dropdown-content {
+  opacity: 100%;
+  transform: translateX(-210px) translateY(40px);
 }
 .fa-chevron-down{
   color: white;
@@ -130,4 +154,13 @@ li.right:hover{
   margin-top: 8px;
 }
 
+button{
+  background-color: transparent;
+  border: transparent;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  outline: transparent;
+  margin-bottom: inherit;
+}
 </style>
