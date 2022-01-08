@@ -1,6 +1,6 @@
 # food
-
-## Project setup
+## Initial preparations
+### Project setup
 ```
 npm install
 ```
