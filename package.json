@@ -10,7 +10,7 @@
   "dependencies": {
     "@mdi/font": "5.9.55",
     "core-js": "^3.6.5",
-    "firebase": "^8.7.1",
+    "firebase": "^8.10.1",
     "lodash": "^4.17.21",
     "marked": "^3.0.2",
     "roboto-fontface": "*",

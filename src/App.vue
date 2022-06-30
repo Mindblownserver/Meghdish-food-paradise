@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import Navbar from "@/components/navbar.vue"
+import Navbar from "@/components/new_navbar.vue"
 import Foooter from "@/components/Footer.vue"
 import Hamberger from "@/components/hamburger.vue"
 import firebase from 'firebase/app';
@@ -79,15 +79,16 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 
 * {
   padding: 0;
-  font-family: 'Satisfy', cursive;
+  font-family: 'Montserrat', cursive;
 }
 #app{
+  --main-web-color: #EC994B;
   text-align: center;
   background-color: rgb(247, 247, 247);
+  overflow-x: hidden;
 }
 
 </style>
