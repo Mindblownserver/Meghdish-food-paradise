@@ -12,6 +12,15 @@
     </div>
 </template>
 
+
+<script>
+export default {
+    name:"CARD",
+
+}
+</script>
+
+
 <style  scoped>
 
 *, *::before, *::after{

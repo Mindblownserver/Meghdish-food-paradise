@@ -1,6 +1,8 @@
 <template>
     <h5><span>All Rights Reserved</span></h5>
-    <p>&copy;2021 Meghdish Food Paradise</p>
+    <div>
+        <p>&copy;2022 Meghdish Food</p>
+    </div>
 
 </template>
 
@@ -24,4 +26,8 @@ h5 span {
     background:rgb(245, 245, 245); 
     padding:0 10px; 
 }
+.fa{
+    color: black;
+}
+
 </style>

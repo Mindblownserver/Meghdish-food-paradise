@@ -60,7 +60,7 @@ export default {
 }
 .card-list {
   display: grid;
-  grid-gap: 1em;
+  grid-gap: 10vw;
 }
 
 /*1119 is size for 2 coloumns*/

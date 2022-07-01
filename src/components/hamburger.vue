@@ -1,5 +1,5 @@
 <template>
-    <h3 class="title">Hei</h3>
+    <h3 class="title">Meghdish Food</h3>
     <nav>
         <input type="checkbox" name="check" id="check">
         <button class="menu" onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'));document.getElementById('check').checked=!document.getElementById('check').checked;" aria-label="Main Menu">
@@ -54,15 +54,20 @@ export default {
 .title{
   position: absolute;
   margin-left: 20px;
-  color: white;
   margin-top: 5px;
+  background: linear-gradient(to right, rgba(248, 117, 55, 1), var(--main-web-color));  
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 0.24px;
 }
 
 #check{
     display: none;
 }
 nav{
-    background-color: #333;
+    background-color: var(--web-bg);
     height: 40px;
     width: 100%;
 }
@@ -78,8 +83,8 @@ nav{
   padding: 0;
 }
 .line {
-  fill: none;
-  stroke: white;
+  fill:  none;
+  stroke: var(--main-web-color);
   stroke-width: 6;
   transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
     stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -115,7 +120,7 @@ nav{
 /* menu items ul and li */
 
 ul{
-    background-color: rgb(39, 36, 36);
+    background-color: rgb(255, 255, 255);
     position: absolute;
     width: 100%;
     display: block;
@@ -133,14 +138,14 @@ ul li{
     padding-block: 15px;
 }
 ul li a{
-    color: white;
+    color: black;
+    text-decoration: none;
 }
 
 
 li:hover{
-  background-color: #444;
-  text-decoration: none;
-  border-bottom-color: rgb(0, 153, 20);
+  background-color: rgb(224, 224, 224);
+  
 }
 
 

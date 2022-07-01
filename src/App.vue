@@ -86,8 +86,9 @@ export default {
 }
 #app{
   --main-web-color: #EC994B;
+  --web-bg: rgb(247, 247, 247);
   text-align: center;
-  background-color: rgb(247, 247, 247);
+  background-color: var(--web-bg);
   overflow-x: hidden;
 }
 

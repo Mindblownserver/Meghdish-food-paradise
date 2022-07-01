@@ -66,6 +66,7 @@ h1,p{
 }
 .btn{
   border-radius: 41px;
+  margin-bottom: 20px;
 }
 .pr{
   background-image: linear-gradient(to right, rgba(248, 117, 55, 1), var(--main-web-color));
