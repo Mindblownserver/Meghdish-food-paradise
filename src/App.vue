@@ -1,4 +1,5 @@
 <template>
+  <!--Welcome to my humble website guys!-->
   <div v-if="large">
   <header v-if="this.$route.path!== '/signin' && this.$route.path !== '/login'">
     <Navbar :loggedIn="loggedIn" @logout="logout" :username="displayname" :email="email"/>
