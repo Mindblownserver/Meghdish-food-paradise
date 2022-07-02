@@ -1,16 +1,16 @@
 <template>
-    <div class="search">
-        <h1>Discover</h1>
-        <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Type food name here" id="searchbar" aria-describedby="basic-addon2" @keyup="search">
+    <div class="search input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" style="background-color:#FFFF;border-radius:16px 0 0 16px" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
         </div>
+         <input type="text" class="form-control" placeholder="Search food" id="searchbar" aria-describedby="basic-addon2" @keyup="search">
     </div>
     <!--Chips-->
     
     <div class="Container">
         <div class="row">
             <div v-for="(FdTag,index) in FdTags" :key="index">
-                <router-link v-bind:to="'/recipies/' + FdTag.id"><Chip :text="FdTag.text" :BG="FdTag.color" @click="filter_food(FdTag.text)"/></router-link>
+                <router-link v-bind:to="'/recipes/' + FdTag.id"><Chip :text="FdTag.text" :BG="FdTag.color" @click="filter_food(FdTag.text)"/></router-link>
             </div>
         </div>
     </div>
@@ -50,6 +50,9 @@ export default {
     margin-top: 10px;
     margin-left: 80px;
     width: 709px;
+}
+input{
+    border-radius: 16px;
 }
 
 @media only screen and (max-width: 792px){
