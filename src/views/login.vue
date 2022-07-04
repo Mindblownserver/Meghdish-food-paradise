@@ -4,15 +4,13 @@
         </div>
         <div class="content">
             <div class="form">
-                <h2>Login</h2>
+                <h2>Login to Meghdish Food</h2>
                 <form>
                     <div class="input">
-                        <span>Email</span>
-                        <input type="text" v-model="Email" name="">
+                        <input type="text" placeholder="Email.." v-model="Email" name="">
                     </div>
                     <div class="input">
-                        <span>Password</span>
-                        <input type="password" v-model="Password" name="">
+                        <input type="password" placeholder="Password.." v-model="Password" name="">
                     </div>
                     <div class="form-check form-check-inline remember">
                         <input class="form-check-input" v-model="checkbox" type="checkbox" id="inlineCheckbox1" value="option1">
@@ -27,11 +25,6 @@
                         <p>Don't have an account? <a href="/signin">Sign up</a></p>
                     </div>
                 </form>
-                <h3>Login with social media</h3>
-                <ul class="sci">
-                    <li><i class="fab fa-facebook-f"></i></li>
-                    <li><i class="fab fa-google"></i></li>
-                </ul>
             </div>
         </div>
     </section>
@@ -79,7 +72,7 @@ section{
 }
 section .img{
     position: relative;
-    width: 50%;
+    width: 40%;
     height: 100%;
 }
 section .img:before{
@@ -89,9 +82,9 @@ section .img:before{
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(315deg, #fc9842 0%, #fe5f75 90%);
+    background-image: linear-gradient(to left, var(--main-web-color) 0%, rgba(248, 117, 55, 1) 100%);
     z-index: 1;
-    mix-blend-mode: screen;
+    /***mix-blend-mode: screen;*/
 }
 
 section .img img{
@@ -114,11 +107,10 @@ section .content .form{
     width: 50%;
 }
 section .content .form h2{
-    color: rgb(228, 99, 39);
-    font: 600;
+    color: black;
+    font-weight: bolder;
     font-size: 1.5rem;
     margin-bottom: 20px;
-    border-bottom: 4px solid rgb(228, 99, 39);
     display: inline-block;
     letter-spacing: 1px;
 }
@@ -147,16 +139,14 @@ section .content .form .input input{
     border-radius: 20px;
 }
 section .content .form .input button{
-    background: linear-gradient(315deg, #fc9842 0%, #fe5f75 90%);
+    background: linear-gradient(to left, var(--main-web-color) 0%, rgba(248, 117, 55, 1) 100%);
     color: white;
     font-weight: 500;
-    width: 100%;
+    width: 50%;
     padding: 10px 20px;
     border-radius: 20px;
 }
-section .content .form .input p{
-    color: #fc9842;
-}
+
 section .content .form .input p a{
     color: #e46e07;
 }

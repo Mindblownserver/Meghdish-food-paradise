@@ -22,7 +22,7 @@
 <script>
 import Navbar from "@/components/new_navbar.vue"
 import Foooter from "@/components/Footer.vue"
-import Hamberger from "@/components/hamburger.vue"
+import Hamberger from "@/components/hamburger_nav.vue"
 import firebase from 'firebase/app';
 import 'firebase/auth';
 export default {

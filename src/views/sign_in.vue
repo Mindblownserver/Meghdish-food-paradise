@@ -4,34 +4,30 @@
         </div>
         <div class="content">
             <div class="form">
-                <h2>Sign up</h2>
+                <h2>Sign up to Meghdish Food</h2>
                 <form>
                     <div class="input">
-                        <span>Email</span>
-                        <input type="text" placeholder="Foulan@Foulani.com" v-model="Email" name="">
+                        <input type="text" placeholder="Username.." place v-model="username" name="">
                     </div>
                     <div class="input">
-                        <span>Username</span>
-                        <input type="text" v-model="username" placeholder="Foulan" name="">
+                        <input type="text" v-model="Email" placeholder="Email.." name="">
                     </div>
                     <div class="input">
-                        <span>Password</span>
-                        <input type="password" v-model="Password" name="">
+                        <input type="password" placeholder="Password.." v-model="Password" name="">
                     </div>
                     <div class="input">
-                        <span>Confirm password</span>
-                        <input type="password" v-model="confirm" name="">
+                        <input type="password" v-model="confirm" placeholder="Confirm password.." name="">
                     </div>
                     <div class="form-check form-check-inline remember">
                         <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
                         <label class="form-check-label" for="inlineCheckbox1">Remember me</label>
                     </div>
-                    <div class="input">
+                    <div class="input" style="margin-bottom:10px;">
+                        <p>Have an account? <a href="/login">Login</a></p>
+                    </div>
+                    <div class="input1">
                         <button type="button" class="btn" @click="createAccount">Sign up</button>
 
-                    </div>
-                    <div class="input">
-                        <p>Have an account? <a href="/login">Login</a></p>
                     </div>
                 </form>
                 <h3>Sign up with social media</h3>
@@ -42,6 +38,7 @@
             </div>
         </div>
     </section>
+    
 </template>
 <script>
 import firebase from 'firebase/app';
@@ -72,7 +69,7 @@ export default {
                 
             }
             else{
-                alert(`The password you typed doesn't match what you confirmed. Expected =>"${this.Password}" but got =>"${this.confirm}"`)
+                alert(`The password you typed doesn't match what you confirmed. Expected => ${this.Password} but got => ${this.confirm}`)
             }
         }
     },
@@ -94,7 +91,7 @@ section{
 }
 section .img{
     position: relative;
-    width: 50%;
+    width: 40%;
     height: 100%;
 }
 section .img:before{
@@ -104,9 +101,9 @@ section .img:before{
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(315deg, #fc9842 0%, #fe5f75 90%);
+    background-image: linear-gradient(to left, var(--main-web-color) 0%, rgba(248, 117, 55, 1) 100%);
     z-index: 1;
-    mix-blend-mode: screen;
+    /**mix-blend-mode: screen;**/
 }
 
 section .img img{
@@ -129,55 +126,47 @@ section .content .form{
     width: 50%;
 }
 section .content .form h2{
-    color: rgb(228, 99, 39);
+    color: black;
     font: 600;
     font-size: 1.5rem;
+    font-weight: bolder;
     margin-bottom: 20px;
-    border-bottom: 4px solid rgb(228, 99, 39);
     display: inline-block;
     letter-spacing: 1px;
 }
-section .content .form .input{
-    margin-block: 20px;
-}
-section .content .form .input span{
-    font-size: 16px;
-    margin-bottom: 5px;
-    display: inline-block;
-    color: rgb(228, 99, 39);
-    font-weight: 300;
-    font-size: 16px;
-    letter-spacing: 1px;
-}
+
+
 section .content .form .input input{
     width: 100%;
     padding: 10px 20px;
     outline: none;
     font-weight: 400;
-    border: 1px solid rgb(228, 99, 39);
-    font-size: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
     letter-spacing: 1px;
     color: black;
     background: transparent;
-    border-radius: 20px;
+    border-radius: 31px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
-section .content .form .input button{
-    background: linear-gradient(315deg, #fc9842 0%, #fe5f75 90%);
+section .content .form .input1 button{
+    background: linear-gradient(to left, var(--main-web-color), rgba(248, 117, 55, 1));;
     color: white;
     font-weight: 500;
-    width: 100%;
+    width: 50%;
     padding: 10px 20px;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 section .content .form .input p{
-    color: #fc9842;
+    color: black;
 }
 section .content .form .input p a{
-    color: #e46e07;
+    color: var(--main-web-color);
 }
 section .content .form .remember{
     margin-bottom: 10px;
-    color: #fc9842;
+    color: var(--main-web-color);
     font-weight: 400;
     font-size: 14px;
 }

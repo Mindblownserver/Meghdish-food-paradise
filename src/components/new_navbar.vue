@@ -152,7 +152,9 @@ li.right a::after{
   height: 34px;
   float:right;
 }
-
+.deactive button{
+  border-radius: 41px;
+}
 .dropdown-content {
   display: block;
   border-radius: 5px;
