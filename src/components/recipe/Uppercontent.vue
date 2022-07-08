@@ -66,8 +66,7 @@
                 freegan ethical hexagon.
               </p>
             </div>
-            <!-- end of single instruction -->
-            <!-- single instruction -->
+
             <div class="single-instruction">
               <header>
                 <p>step 3</p>
@@ -106,11 +105,6 @@ export default {
 ::before {
   box-sizing: border-box;
 }
-/* fonts */
-
-html {
-  font-size: 100%;
-} /*16px*/
 
 :root {
   --borderRadius: 0.25rem;
@@ -119,11 +113,6 @@ html {
   --max-width: 1120px;
   --fixed-width: 600px;
 
-}
-
-small,
-.text-small {
-  font-size: var(--smallText);
 }
 
 a {
@@ -156,45 +145,6 @@ Page
   min-height: calc(100vh - (6rem + 4rem));
 }
 
-/*
-=============== 
-Hero
-===============
-*/
-h4{
-    text-align: start;
-    margin-bottom: 20px;
- }
-
-.hero {
-  height: 40vh;
-  position: relative;
-  margin-bottom: 2rem;
-  border-radius: var(--borderRadius);
-}
-.hero-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.4);
-  border-radius: var(--borderRadius);
-}
-.hero-text {
-  color: var(--white);
-  text-align: center;
-}
-
-@media only screen and (min-width: 768px) {
-  .hero-text h1 {
-    font-size: 4rem;
-    margin-bottom: 0;
-  }
-}
 
 /*
 =============== 
@@ -211,9 +161,7 @@ Recipe Template
   height: 300px;
   border-radius: var(--borderRadius);
 }
-.recipe-info p {
-  color: var(--grey-600);
-}
+
 .recipe-icons {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -231,24 +179,7 @@ Recipe Template
   font-size: 0.85em;
 }
 
-.recipe-icons p {
-  color: var(--grey-600);
-}
-.recipe-tags {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  font-size: 0.7em;
-  font-weight: 600;
-}
-.recipe-tags a {
-  background: var(--primary-500);
-  border-radius: var(--borderRadius);
-  color: var(--white);
-  padding: 0.05rem 0.5rem;
-  margin: 0 0.25rem;
-  text-transform: capitalize;
-}
+
 @media screen and (min-width: 992px) {
   .recipe-hero {
     grid-template-columns: 4fr 5fr;
@@ -274,14 +205,12 @@ Recipe Template
 .single-instruction header p {
   text-transform: uppercase;
   font-weight: 600;
-  color: var(--primary-500);
+  color: var(--main-web-color);
   margin-bottom: 0;
 }
 .single-instruction > p {
   margin-top: 10px;
-  color: var(--grey-700);
   text-align: start;
-
 }
 
 .single-instruction header div {
@@ -298,7 +227,6 @@ Recipe Template
   border-bottom: 2px solid silver;
   text-align: start;
   padding-bottom: 0.75rem;
-  color: var(--grey-700);
 }
 
 .card{

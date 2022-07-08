@@ -85,9 +85,11 @@ export default {
   padding: 0;
   font-family: 'Montserrat', cursive;
 }
-#app{
+:root{
   --main-web-color: #EC994B;
   --web-bg: rgb(247, 247, 247);
+}
+#app{
   text-align: center;
   background-color: var(--web-bg);
   overflow-x: hidden;

@@ -28,13 +28,13 @@
         <ul class="active" >
           <li class="icon">
             <div class="eclipse">
-              <i class="fa fa-bookmark"></i>
+              <i class="far fa-bookmark"></i>
             </div>
             <span class="badge badge-light">9</span>
           </li>
           <li class="icon">
             <div class="eclipse">
-              <i class="fa fa-bell"></i>
+              <i class="far fa-bell"></i>
             </div>
             <span class="badge badge-light">9</span>
           </li>
