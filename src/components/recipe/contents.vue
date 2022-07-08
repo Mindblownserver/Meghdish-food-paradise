@@ -3,9 +3,6 @@
         <Uppercontent  />
     </div>
     <div>
-        <PopularRecipies />
-    </div>
-    <div>
         <RateRecipe />
     </div>
 </template>
@@ -13,13 +10,11 @@
 
 <script>
 import Uppercontent from "@/components/recipe/Uppercontent.vue"
-import PopularRecipies from "@/components/recipe/popular_recipies.vue"
 import RateRecipe from "@/components/recipe/Rate_recipe.vue"
 export default {
     name: 'Contents',
     components: {
         Uppercontent,
-        PopularRecipies,
         RateRecipe
     }
 }
@@ -30,9 +25,9 @@ export default {
 *{
     color: black;
     display: flex;
-    text-align: start;
-    width: 100%;
+    width: 85.5%;
     margin-top: 50px;
+    margin-left: 120px;
 }
 
 @media only screen and (max-width: 868px){

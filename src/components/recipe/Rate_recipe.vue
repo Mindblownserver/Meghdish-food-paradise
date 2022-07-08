@@ -30,7 +30,7 @@ export default {
     width: 50rem;
     text-align: start;
     background-color: white;
-    margin-left: 30px;
+    margin-left: 0;
     margin-top: 10px;
     margin-bottom: 30px;
     padding: 30px 40px;
