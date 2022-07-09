@@ -20,7 +20,7 @@
                 
                 <h6 :style="{color: recipe.Tag[1]}">{{recipe.Time}}</h6>
                 <Chip :text="recipe.Tag[0]" :BG="recipe.Tag[1]" @click="filter_food(recipe.Tag[0])"/>
-                <button class="btn" :style="{'background-color': recipe.Tag[1]}"> View recipe <i class="fa fa-arrow-right"></i></button>
+                <a :href="'/recipes/recipe/' + recipe.title"><button class="btn" :style="{'background-color': recipe.Tag[1]}"> View recipe <i class="fa fa-arrow-right"></i></button></a>
             </div>
         </div>
     </div>

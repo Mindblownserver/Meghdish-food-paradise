@@ -1,45 +1,47 @@
 <template>
     <main class="page">
       <div class="recipe-page">
-        <section class="recipe-hero card">
-          <img
-            src=""
-            alt="insert picture"
-            class="img recipe-hero-img"
-          />
-          <article class="recipe-info" style="text-align:start;">
-            <h2>Banana Pancakes</h2>
-            <p>
-              Shabby chic humblebrag banh mi bushwick, banjo kale chips
-              meggings. Cred selfies sartorial, cloud bread disrupt blue bottle
-              seitan. Dreamcatcher tousled bitters, health goth vegan venmo
-              whatever street art lyft shabby chic pitchfork beard. Drinking
-              vinegar poke tbh, iPhone coloring book polaroid truffaut tousled
-              ramps pug trust fund letterpress. Portland four loko austin
-              chicharrones bitters single-origin coffee. Leggings letterpress
-              occupy pour-over.
-            </p>
-            <div class="recipe-icons">
-              <article>
-                <i class="far fa-star"></i>
-                <h5>rating</h5>
-                <p>4.9</p>
-              </article>
-              <article>
-                <i class="far fa-clock"></i>
-                <h5>cook time</h5>
-                <p>15 min.</p>
-              </article>
-              <article>
-                <i class="far fa-smile"></i>
-                <h5>difficulty</h5>
-                <p>easy</p>
-              </article>
-            </div>
-          </article>
-        </section>
+        <Transition mode="in-out" appear name="slide-fade">
+          <section  class="recipe-hero card">
+            <img
+              src=""
+              alt="insert picture"
+              class="img recipe-hero-img"/>
+            <article class="recipe-info" style="text-align:start;">
+              <h2>Banana Pancakes</h2>
+              <p>
+                Shabby chic humblebrag banh mi bushwick, banjo kale chips
+                meggings. Cred selfies sartorial, cloud bread disrupt blue bottle
+                seitan. Dreamcatcher tousled bitters, health goth vegan venmo
+                whatever street art lyft shabby chic pitchfork beard. Drinking
+                vinegar poke tbh, iPhone coloring book polaroid truffaut tousled
+                ramps pug trust fund letterpress. Portland four loko austin
+                chicharrones bitters single-origin coffee. Leggings letterpress
+                occupy pour-over.
+              </p>
+              <div class="recipe-icons">
+                <article>
+                  <i class="far fa-star"></i>
+                  <h5>rating</h5>
+                  <p>4.9</p>
+                </article>
+                <article>
+                  <i class="far fa-clock"></i>
+                  <h5>cook time</h5>
+                  <p>15 min.</p>
+                </article>
+                <article>
+                  <i class="far fa-smile"></i>
+                  <h5>difficulty</h5>
+                  <p>easy</p>
+                </article>
+              </div>
+            </article>
+          </section>
+        </Transition>
         <!-- content -->
         <section class="recipe-content">
+          <Transition name="ToRight" appear mode="in-out">
           <article class="card">
             <h4>Instructions</h4>
             <!-- single instruction -->
@@ -79,6 +81,8 @@
             </div>
             <!-- end of single instruction -->
           </article>
+          </Transition>
+          <Transition name="ToLeft" appear mode="in-out">
           <article class="second-column card">
             <div>
               <h4>Ingredients</h4>
@@ -87,6 +91,7 @@
               <p class="single-ingredient">1 cup skim milk</p>
             </div>
           </article>
+          </Transition>
         </section>
       </div>
     </main>
@@ -95,8 +100,8 @@
 
 <script>
 export default {
-    name: 'Uppervalue'
-}
+    name: 'Uppervalue',
+  }
 </script>
 
 <style scoped>
@@ -234,6 +239,49 @@ Recipe Template
     padding: 30px 40px;
     border-radius: 10px;
     box-shadow: 2px 3px 5px rgb(187, 187, 187);
+}
+.slide-fade-enter-active {
+  transition: all 0.5s ease;
+}
+
+.slide-fade-enter-to{
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.slide-fade-enter-from {
+  transform: translateY(-60px);
+  opacity: 0;
+}
+
+.ToRight-enter-active {
+  transition: all 0.5s ease;
+  transition-delay: 1s;
+}
+
+.ToRight-enter-to{
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.ToRight-enter-from {
+  transform: translateX(-60px);
+  opacity: 0;
+}
+
+.ToLeft-enter-active {
+  transition: all 0.5s ease;
+  transition-delay: 2s;
+}
+
+.ToLeft-enter-to{
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.ToLeft-enter-from {
+  transform: translateX(60px);
+  opacity: 0;
 }
 
 </style>

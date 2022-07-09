@@ -156,7 +156,7 @@ section .content .form .input1 button{
     font-weight: 500;
     width: 50%;
     padding: 10px 20px;
-    border-radius: 10px;
+    border-radius: 20px;
 }
 section .content .form .input p{
     color: black;

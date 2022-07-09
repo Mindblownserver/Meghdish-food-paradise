@@ -45,7 +45,7 @@ export default {
 
 <style>
 .create{
-    margin-top: 30px;
+    margin-top: 100px;
     width: 50%;
     margin-left: 30px;
 }

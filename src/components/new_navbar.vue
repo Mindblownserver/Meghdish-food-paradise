@@ -20,12 +20,12 @@
             </div>
           </li>
         </div>
-        <div v-else class="rightest">
+        <div v-else class="rightest" >
           <li class="active frame_2"><div id="login"><a href="/login">Login</a></div></li>
           <li class="active frame_3"><div id="register"><a href="/signin">Register</a></div></li>
         </div>
 
-        <ul class="active" >
+        <ul class="active" style="display:none">
           <li class="icon">
             <div class="eclipse">
               <i class="far fa-bookmark"></i>
@@ -34,7 +34,7 @@
           </li>
           <li class="icon">
             <div class="eclipse">
-              <i class="far fa-bell"></i>
+              <a class="far fa-bell" tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?"></a>
             </div>
             <span class="badge badge-light">9</span>
           </li>
@@ -43,6 +43,7 @@
 </template>
 
 <script>
+
 export default{
     name: 'Navbar',
     emits: ["logout"],
@@ -218,7 +219,7 @@ button{
 	width: 128px;
 	height: 34px;
   border-radius: 41px;
-  background-image: linear-gradient(to right, rgba(248, 117, 55, 1), var(--main-web-color));
+  background-color: rgba(248, 117, 55, 1);
 }
 
 #login {

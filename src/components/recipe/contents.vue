@@ -1,5 +1,5 @@
 <template>
-    <div >
+    <div>
         <Uppercontent  />
     </div>
     <div>
@@ -28,11 +28,5 @@ export default {
     width: 85.5%;
     margin-top: 50px;
     margin-left: 120px;
-}
-
-@media only screen and (max-width: 868px){
-    *{
-        width: 95vw;
-    }
 }
 </style>

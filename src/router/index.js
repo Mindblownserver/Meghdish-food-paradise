@@ -16,7 +16,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/recipies.vue')
   },
   {
-    path: '/recipes/recipe',
+    path: '/recipes/recipe/:id',
     name: 'recipe',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
@@ -86,10 +86,15 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/Error404.vue')
   },
   {
+    path: '/recipes/recipe',
+    redirect: '/404'
+  },
+  {
     path: '/:pathMatch(.*)*',
     redirect: '/404'
   }
 ]
+
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
