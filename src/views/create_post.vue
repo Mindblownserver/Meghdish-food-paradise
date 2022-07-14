@@ -13,7 +13,8 @@
                 <input type="text" class="form-control" aria-label="Large" placeholder="Title..." v-model="title" aria-describedby="inputGroup-sizing-sm">
             </div>      
             <div class="input-group">
-                <textarea class="form-control p" v-model="description" placeholder="Description..." aria-label="With textarea"></textarea>
+                <textarea class="form-control p pre-markdown" v-model="description" placeholder="Description..." aria-label="With textarea"></textarea>
+                <div v-html="compiledMarkdown" class="markdown"></div>
             </div>
               <div class="recipe-icons">
                 <article>
@@ -24,13 +25,12 @@
                 <article>
                   <i class="far fa-clock"></i>
                   <h5>cook time</h5>
-                  <p><input type="number" style="max-width:100px"> min.</p>
+                  <p><input type="number"   max="999" min="0" class="form-control" v-model="cookingTime" style="max-width:100px">min.</p>
                 </article>
                 <article class="diff">
                   <i class="far fa-smile"></i>
                   <h5>difficulty</h5>
-                <select id="inputState" class="form-control">
-                    <option selected>Choose...</option>
+                <select id="inputState" v-model="difficulty" class="form-control">
                     <option>Easy</option>
                     <option>Medium</option>
                     <option>Hard</option>
@@ -46,56 +46,38 @@
           <article class="card">
             <h4>Instructions</h4>
             <!-- single instruction -->
-            <div class="single-instruction">
+            <div class="single-instruction instru">
               <header>
                 <p>step 1</p>
                 <div></div>
               </header>
-              <p>
-                I'm baby mustache man braid fingerstache small batch venmo
-                succulents shoreditch.
-              </p>
+              <div class="input-group">
+                <textarea class="form-control p" v-model="description" aria-label="With textarea"></textarea>
+              </div>
             </div>
             <!-- end of single instruction -->
-            <!-- single instruction -->
-            <div class="single-instruction">
-              <header>
-                <p>step 2</p>
-                <div></div>
-              </header>
-              <p>
-                Pabst pitchfork you probably haven't heard of them, asymmetrical
-                seitan tousled succulents wolf banh mi man bun bespoke selfies
-                freegan ethical hexagon.
-              </p>
-            </div>
-
-            <div class="single-instruction">
-              <header>
-                <p>step 3</p>
-                <div></div>
-              </header>
-              <p>
-                Polaroid iPhone bitters chambray. Cornhole swag kombucha
-                live-edge.
-              </p>
-            </div>
-            <!-- end of single instruction -->
+            <button type="button" class="btn btn-outline-info" @click="addStep">+</button>
+            <button type="button" class="btn btn-outline-danger" @click="removeStep">-</button>
           </article>
           </Transition>
           <Transition name="ToLeft" appear mode="in-out">
           <article class="second-column card">
             <div>
               <h4>Ingredients</h4>
-              <div class="input-group mb-3">
-                    <input type="text" class="form-control single-ingredient" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+              <div id="ingri">
+                <div class="input-group mb-3">
+                      <input type="text" class="form-control single-ingredient" aria-label="Default" aria-describedby="inputGroup-sizing-default">
                 </div>
+              </div>
+              <button type="button" class="btn btn-outline-info" @click="addIngridient">+</button>
+              <button type="button" class="btn btn-outline-danger" @click="removeIngridient">-</button>
             </div>
           </article>
           </Transition>
         </section>
       </div>
     </main>
+    <button type="button" class="btn btn-outline-info">Preview</button>
     </div>
     <div v-else>
         <p>illigal</p>
@@ -111,16 +93,54 @@ export default {
     data() {
         return {
             accessToken: true,
-            input: "# hello",
             description: "",
             title:"",
+            cookingTime: 15,
+            difficulty: "",
         }
     },
-    computed: {
+    computed: { // In computed, the methode compiledMarkdown occures whenever description is changed!
         compiledMarkdown: function() {
-            return marked(this.input);
+            return marked(this.description);
         }
     },
+    methods :{
+      addIngridient(){
+        let newField = document.createElement("input")
+        let ingri = document.querySelector("#ingri")
+        newField.setAttribute("type","text")
+        newField.setAttribute("class", "form-control single-ingredient mb-3 ")
+        newField.setAttribute("aria-describedby", "inputGroup-sizing-default")
+        ingri.appendChild(newField)
+      },
+      removeIngridient(){
+        let ingri = document.querySelector("#ingri")
+        let inputTags = ingri.getElementsByTagName("input")
+        if (inputTags.length>1){
+          ingri.removeChild(inputTags[inputTags.length -1])
+        }
+      },
+      addStep(){
+        let instru = document.querySelector(".instru")
+        let headers = instru.getElementsByTagName("header")
+        let stepHeader = document.createElement("header")
+        let newStep = document.createElement("textarea")
+        newStep.setAttribute("class", "form-control")
+        newStep.setAttribute("aria-label", "With textarea")
+        stepHeader.innerHTML = `<p>step ${headers.length+1}</p><div></div>`
+        instru.appendChild(stepHeader)
+        instru.appendChild(newStep)
+      },
+      removeStep(){
+        let instru = document.querySelector(".instru")
+        let headers = instru.getElementsByTagName("header")
+        let steps = instru.getElementsByClassName("form-control")
+        if (headers.length>1) {
+          instru.removeChild(headers[headers.length -1])
+          instru.removeChild(steps[steps.length -1])
+        }
+      }
+    }
 }
 </script>
 
@@ -314,5 +334,10 @@ Recipe Template
 }
 select{
     max-width: 100px;
+}
+
+
+.markdown{
+  display: none;
 }
 </style>
