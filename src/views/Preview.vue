@@ -57,6 +57,7 @@
           </article>
           </Transition>
         </section>
+        <button type="button" class="btn btn-outline-success">Like it? Submit it!</button>
       </div>
     </main>
     
@@ -141,11 +142,10 @@ Page
   max-width: var(--max-width);
   margin: 0 auto;
   margin-top: 30px;
-}
-.page {
   padding-top: 2rem;
   min-height: calc(100vh - (6rem + 4rem));
 }
+
 
 
 /*
