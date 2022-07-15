@@ -14,7 +14,7 @@
             </div>      
             <div class="input-group">
                 <textarea class="form-control p pre-markdown" v-model="description" placeholder="Description..." aria-label="With textarea"></textarea>
-                <div v-html="compiledMarkdown" class="markdown"></div>
+                
             </div>
               <div class="recipe-icons">
                 <article>
@@ -52,7 +52,7 @@
                 <div></div>
               </header>
               <div class="input-group">
-                <textarea class="form-control p" v-model="description" aria-label="With textarea"></textarea>
+                <textarea class="form-control p" aria-label="With textarea"></textarea>
               </div>
             </div>
             <!-- end of single instruction -->
@@ -77,7 +77,7 @@
         </section>
       </div>
     </main>
-    <button type="button" class="btn btn-outline-info">Preview</button>
+    <router-link to="/create/preview"><button type="button" class="btn btn-outline-info" @click="preview">Preview</button></router-link>
     </div>
     <div v-else>
         <p>illigal</p>
@@ -85,7 +85,7 @@
 </template>
 
 <script>
-import marked from "marked"
+import db from "../fb.js"
 export default {
     name: "Create",
     el: '#lol',
@@ -97,11 +97,6 @@ export default {
             title:"",
             cookingTime: 15,
             difficulty: "",
-        }
-    },
-    computed: { // In computed, the methode compiledMarkdown occures whenever description is changed!
-        compiledMarkdown: function() {
-            return marked(this.description);
         }
     },
     methods :{
@@ -139,7 +134,33 @@ export default {
           instru.removeChild(headers[headers.length -1])
           instru.removeChild(steps[steps.length -1])
         }
-      }
+      },
+      preview(){
+        // Get ingridientElements
+        let ingridientElements = document.querySelector('#ingri').getElementsByTagName("input")
+        let ingridients = []
+        for(let i = 0; i< ingridientElements.length;i++){
+          ingridients.push(ingridientElements[i].value)
+        }
+        // Get instructionElements
+        let instructionElements = document.querySelector('.instru').getElementsByTagName("textarea")
+        let instructions = []
+        for(let i = 0; i< instructionElements.length;i++){
+          instructions.push(instructionElements[i].value)
+        }
+        // console.log(instructions, ingridients)
+        // Create THE object
+        const recipe = {
+          "title": this.title,
+        "description": this.description,
+        "cookingTime": this.cookingTime,
+        "difficulty": this.difficulty,
+        "ingridients": ingridients,
+        "instructions": instructions
+        }
+        // Upload to firebase preview collection
+        db.collection('preview').doc('recipeMockup').set(recipe);
+      },
     }
 }
 </script>

@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@mdi/font": "5.9.55",
+    "browserify-fs": "^1.0.0",
     "core-js": "^3.6.5",
     "firebase": "^8.10.1",
     "lodash": "^4.17.21",
