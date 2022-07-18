@@ -86,7 +86,7 @@ export default {
   font-family: 'Montserrat', cursive;
 }
 :root{
-  --main-web-color: #EC994B;
+  --main-web-color: hsl(29, 81%, 61%);
   --web-bg: rgb(247, 247, 247);
 }
 #app{
@@ -94,5 +94,18 @@ export default {
   background-color: var(--web-bg);
   overflow-x: hidden;
 }
-
+::-webkit-scrollbar {
+    width: 1em;
+}
+::-webkit-scrollbar-track {
+    background: var(--web-bg);
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 100vw;
+    border: .25vw solid var(--web-bg);
+    background: linear-gradient(hsl(19, 93%, 59%), var(--main-web-color));
+}
+::-webkit-scrollbar-thumb:hover{
+  background: linear-gradient(hsl(19, 93%, 40%), hsl(29, 81%, 50%));
+}
 </style>

@@ -28,7 +28,7 @@
 
 <script>
 import Chip from "../chip.vue"
-//import db from "../../fb.js"
+// import db from "../../fb.js"
 export default {
     name: "BigRecipyCard",
     props: {
@@ -46,7 +46,7 @@ export default {
     },
     methods: {
         snippet(value){
-            return value.slice (0,100) + ' ...'
+            return value.slice (0,50) + ' ...'
         },
     },
     created() {
@@ -54,15 +54,16 @@ export default {
         const starPercentage = (this.recipe.stars / 5) *100;
         const starPercentageRounded = `${Math.round(starPercentage / 10) * 10}%`;
         this.Stars = starPercentageRounded;
-        // db.collection("Food recipies").add({
-        //     title: this.recipe.title,
-        //     img: this.recipe.img,
-        //     desc: this.recipe.desc,
-        //     stars: this.recipe.stars,
-        //     Time: this.recipe.Time,
-        //     Tag: [this.recipe.Tag[0], this.recipe.Tag[1]],
-        //     difficulty: [this.recipe.difficulty[0],this.recipe.difficulty[1]]
+        // db.collection("Food recipies").doc("Food list").collection("food").doc("Spaghetti").add({
+        //     title: "Spaghetti",
+        //     img: "https://firebasestorage.googleapis.com/v0/b/meghdish-food-paradise.appspot.com/o/Recipies%2FMUi327LQaOnMCKxEvlR8%2FMUi327LQaOnMCKxEvlR8.png?alt=media&token=6100e6dd-85c6-4ccf-bce0-65e604ce6863",
+        //     desc: "Tagletelli is love, tagleteli is life",
+        //     stars: 3,
+        //     Time: "30min",
+        //     Tag: ["Pasta", "#EC994B"],
+        //     difficulty: ["Easy","Forestgreen"] //this.recipe.difficulty[1]
         // })
+        console.log("dsqd")
     },
 }
 </script>

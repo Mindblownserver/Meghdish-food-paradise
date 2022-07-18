@@ -4,14 +4,40 @@
       <div class="recipe-page">
         <Transition mode="in-out" appear name="slide-fade">
           <section  class="recipe-hero card">
-            <img
-              src=""
-              alt="insert picture"
-              class="img recipe-hero-img"/>
+            <input type="text" class="form-control" aria-label="Large" placeholder="imageURL..." v-model="imgUrl" aria-describedby="inputGroup-sizing-sm">
             <article class="recipe-info" style="text-align:start;">
               <div class="input-group input-group-lg">
                 <input type="text" class="form-control" aria-label="Large" placeholder="Title..." v-model="title" aria-describedby="inputGroup-sizing-sm">
-            </div>      
+                
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="0" value="Bread">
+              <label class="form-check-label" for="inlineRadio1">Bread</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="1" value="Juice">
+              <label class="form-check-label" for="inlineRadio2">Juice</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="2" value="Meat">
+              <label class="form-check-label" for="inlineRadio1">Meat</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="3" value="Pasta">
+              <label class="form-check-label" for="inlineRadio2">Pasta</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="4" value="Sauces">
+              <label class="form-check-label" for="inlineRadio2">Sauces</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="5" value="Vegetarian">
+              <label class="form-check-label" for="inlineRadio1">Vegetarian</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="6" value="Breakfast">
+              <label class="form-check-label" for="inlineRadio2">Breakfast</label>
+            </div>
             <div class="input-group">
                 <textarea class="form-control p pre-markdown" v-model="description" placeholder="Description..." aria-label="With textarea"></textarea>
                 
@@ -88,15 +114,16 @@
 import db from "../fb.js"
 export default {
     name: "Create",
-    el: '#lol',
     props: ["marked"],
     data() {
         return {
             accessToken: true,
             description: "",
+            imgUrl: "",
             title:"",
             cookingTime: 15,
             difficulty: "",
+            FdTag: ""
         }
     },
     methods :{
@@ -149,12 +176,41 @@ export default {
           instructions.push(instructionElements[i].value)
         }
         // console.log(instructions, ingridients)
+        // get difficulty color
+        let difficultyColor;
+        switch (this.difficulty) {
+          case "Easy":
+            difficultyColor="Forestgreen";
+            break;
+          case "Medium":
+            difficultyColor="Gold";
+            break;
+          case "Hard":
+            difficultyColor="Crimson";
+            break;
+          default:
+            break;
+        } 
+        // get Tag & its correspondent color 
+        let FdTagsColors = ["#B9721F","#6A2FE8","#DC1C1C","#EC994B","#d9c007","#0D8F21","#1BC8C8"]
+        let radios = document.getElementsByClassName("form-check-input")
+        let i = 0
+        while (i<radios.length) {
+          if (radios[i].checked){
+            break;
+          }
+          else{
+            i++
+          }
+        }
         // Create THE object
         const recipe = {
-          "title": this.title,
+        "title": this.title,
+        "image": this.imgUrl,
+        "Tag": [radios[i].value,FdTagsColors[i]],
         "description": this.description,
         "cookingTime": this.cookingTime,
-        "difficulty": this.difficulty,
+        "difficulty": [this.difficulty,difficultyColor],
         "ingridients": ingridients,
         "instructions": instructions
         }
