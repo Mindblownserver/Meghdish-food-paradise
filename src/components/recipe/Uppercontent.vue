@@ -4,36 +4,28 @@
         <Transition mode="in-out" appear name="slide-fade">
           <section  class="recipe-hero card">
             <img
-              src=""
+              :src="recipe.img"
               alt="insert picture"
               class="img recipe-hero-img"/>
             <article class="recipe-info" style="text-align:start;">
-              <h2>Banana Pancakes</h2>
-              <p>
-                Shabby chic humblebrag banh mi bushwick, banjo kale chips
-                meggings. Cred selfies sartorial, cloud bread disrupt blue bottle
-                seitan. Dreamcatcher tousled bitters, health goth vegan venmo
-                whatever street art lyft shabby chic pitchfork beard. Drinking
-                vinegar poke tbh, iPhone coloring book polaroid truffaut tousled
-                ramps pug trust fund letterpress. Portland four loko austin
-                chicharrones bitters single-origin coffee. Leggings letterpress
-                occupy pour-over.
-              </p>
+              <h2>{{recipe.title}}</h2>
+              <Chip :text="recipe.Tag[0]" :BG="recipe.Tag[1]"/>
+              <p>{{recipe.desc}}</p>
               <div class="recipe-icons">
                 <article>
                   <i class="far fa-star"></i>
                   <h5>rating</h5>
-                  <p>4.9</p>
+                  <p>{{recipe.stars}}</p>
                 </article>
                 <article>
                   <i class="far fa-clock"></i>
                   <h5>cook time</h5>
-                  <p>15 min.</p>
+                  <p>{{recipe.Time}} min.</p>
                 </article>
                 <article>
                   <i class="far fa-smile"></i>
                   <h5>difficulty</h5>
-                  <p>easy</p>
+                  <p :style="{color: recipe.difficulty[1]}">{{recipe.difficulty[0]}}</p>
                 </article>
               </div>
             </article>
@@ -45,40 +37,13 @@
           <article class="card">
             <h4>Instructions</h4>
             <!-- single instruction -->
-            <div class="single-instruction">
-              <header>
-                <p>step 1</p>
-                <div></div>
-              </header>
-              <p>
-                I'm baby mustache man braid fingerstache small batch venmo
-                succulents shoreditch.
-              </p>
-            </div>
-            <!-- end of single instruction -->
-            <!-- single instruction -->
-            <div class="single-instruction">
-              <header>
-                <p>step 2</p>
-                <div></div>
-              </header>
-              <p>
-                Pabst pitchfork you probably haven't heard of them, asymmetrical
-                seitan tousled succulents wolf banh mi man bun bespoke selfies
-                freegan ethical hexagon.
-              </p>
-            </div>
-
-            <div class="single-instruction">
-              <header>
-                <p>step 3</p>
-                <div></div>
-              </header>
-              <p>
-                Polaroid iPhone bitters chambray. Cornhole swag kombucha
-                live-edge.
-              </p>
-            </div>
+            <div class="single-instruction" v-for="(instruction, index) in recipe.instructions" :key="index">
+							<header>
+								<p>step {{index+1}}</p>
+								<div></div>
+							</header>
+							<p>{{instruction}}</p>
+						</div>
             <!-- end of single instruction -->
           </article>
           </Transition>
@@ -86,9 +51,9 @@
           <article class="second-column card">
             <div>
               <h4>Ingredients</h4>
-              <p class="single-ingredient">1 1/2 cups dry pancake mix</p>
-              <p class="single-ingredient">1/2 cup flax seed meal</p>
-              <p class="single-ingredient">1 cup skim milk</p>
+              <div v-for="(ingridient,index) in recipe.ingridients" :key="index">
+								<p class="single-ingredient">{{ingridient}}</p>
+							</div>
             </div>
           </article>
           </Transition>
@@ -99,8 +64,16 @@
 </template>
 
 <script>
+import Chip from "@/components/chip.vue"
+
 export default {
     name: 'Uppervalue',
+    props:{
+      recipe: Object,
+    },
+    components: {
+			Chip
+		},
   }
 </script>
 

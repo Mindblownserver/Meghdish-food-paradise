@@ -2,7 +2,7 @@
     <div class="card">
         <div class="row">
             <div class="col-md-5 inner">
-                <img :src="recipe.img" alt="" class="img-fluid img">
+                <img :src="recipe.img" alt="" referrerpolicy="no-referrer" class="img-fluid img">
             </div>
             <div id="text" class="col-md-auto">
                 <div class="title" style="margin-bottom: 10px">
@@ -20,7 +20,7 @@
                 
                 <h6 :style="{color: recipe.Tag[1]}">{{recipe.Time}}</h6>
                 <Chip :text="recipe.Tag[0]" :BG="recipe.Tag[1]" @click="filter_food(recipe.Tag[0])"/>
-                <a :href="'/recipes/recipe/' + recipe.title"><button class="btn" :style="{'background-color': recipe.Tag[1]}"> View recipe <i class="fa fa-arrow-right"></i></button></a>
+                <button @click="pushToRecipe" class="btn" :style="{'background-color': recipe.Tag[1]}"> View recipe <i class="fa fa-arrow-right"></i></button>
             </div>
         </div>
     </div>
@@ -38,7 +38,7 @@ export default {
     data() {
         return {
             Stars: String,
-            tag_id: String
+            tag_id: String,
         }
     },
     components: {
@@ -48,6 +48,10 @@ export default {
         snippet(value){
             return value.slice (0,50) + ' ...'
         },
+        pushToRecipe(){
+            let Recipe = this.recipe.title;
+            this.$router.push({name:`recipe` , query:{data: Recipe} })
+        }
     },
     created() {
         //numbers to stars
@@ -63,7 +67,6 @@ export default {
         //     Tag: ["Pasta", "#EC994B"],
         //     difficulty: ["Easy","Forestgreen"] //this.recipe.difficulty[1]
         // })
-        console.log("dsqd")
     },
 }
 </script>

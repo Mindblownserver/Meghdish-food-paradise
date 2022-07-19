@@ -121,7 +121,10 @@ export default {
 					"desc": this.description,
 					"Time": this.cookingTime,
 					"difficulty": [this.difficulty,this.difficultyColor],
-					"stars": 0,}
+					"stars": 0,
+					"instructions": this.instructions,
+					"ingridients": this.ingridients
+					}
 				DBList.set(recipe)
 			}
 		}

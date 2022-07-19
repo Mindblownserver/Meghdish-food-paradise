@@ -1,7 +1,7 @@
 <template>
     <div class="card" style="width: 20rem">
         <div class="inner">
-            <img class="card-img-top" :src="recipe.img" alt="">
+            <img class="card-img-top" :src="recipe.img" referrerpolicy="no-referrer" alt="">
         </div>
         <div class="card-body">
             <div class="title" style=" margin-bottom: 10px;">

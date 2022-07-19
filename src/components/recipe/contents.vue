@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Uppercontent  />
+        <Uppercontent  :recipe="recipe"/>
     </div>
     <div>
         <RateRecipe />
@@ -16,6 +16,9 @@ export default {
     components: {
         Uppercontent,
         RateRecipe
+    },
+    props:{
+        recipe: Object
     }
 }
 </script>
