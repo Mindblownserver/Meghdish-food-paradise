@@ -54,6 +54,7 @@ export default {
     }
   },
     created() {
+      document.title = "Megdish Food"
       firebase.auth().onAuthStateChanged((user) => {
       if (user){
         this.loggedIn = true;
