@@ -1,6 +1,6 @@
 <template>
     <ul class="root" style="right:100px ;left:100px">
-        <a href="/" class="title">Meghdish Food</a>
+        <a href="/" class="title">Megdish Food</a>
         <ul class="middle">
           <li class="right "><a href="/">Home</a></li>
           <li class="right "><a href="/recipes/all">Recipes</a></li>
