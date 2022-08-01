@@ -1,14 +1,14 @@
 <template>
   <!--Welcome to my humble website guys!-->
   <div v-if="large">
-  <header v-if="this.$route.path!== '/signin' && this.$route.path !== '/login'">
-    <Navbar :loggedIn="loggedIn" @logout="logout" :username="displayname" :email="email"/>
-  </header>
+    <header v-if="this.$route.path!== '/signin' && this.$route.path !== '/login'">
+      <Navbar :loggedIn="loggedIn" @logout="logout" :username="displayname" :email="email"/>
+    </header>
   </div>
   <div v-else>
-  <header v-if="this.$route.path!== '/signin' && this.$route.path !== '/login'">
-    <Hamberger :loggedIn="loggedIn" @logout="logout"/>
-  </header>
+    <header v-if="this.$route.path!== '/signin' && this.$route.path !== '/login'">
+      <Hamberger :loggedIn="loggedIn" @logout="logout"/>
+    </header>
   </div>
   
   <router-view/>
