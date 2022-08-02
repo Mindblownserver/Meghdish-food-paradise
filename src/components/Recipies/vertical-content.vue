@@ -16,7 +16,7 @@
 
 <script>
 import BigRecipyCard from "@/components/Recipies/BigFoodRecipyCard.vue"
-import SmallRecipeCard from "@/components/Recipies/SmallFoodRecipyCard.vue"
+import SmallRecipeCard from "@/components/SmallFoodRecipyCard.vue"
 export default {
     data(){
         return{

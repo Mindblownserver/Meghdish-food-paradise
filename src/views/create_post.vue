@@ -117,7 +117,7 @@ export default {
     props: ["marked"],
     data() {
         return {
-            accessToken: true,
+            accessToken: false,
             description: "",
             imgUrl: "",
             title:"",

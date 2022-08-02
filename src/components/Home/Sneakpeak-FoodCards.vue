@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import SmallRecipeCard from "@/components/Home/SmallFoodRecipyCard.vue"
+import SmallRecipeCard from "@/components/SmallFoodRecipyCard.vue"
 export default {
     name: "SneakpeakFoodCards",
     props: {

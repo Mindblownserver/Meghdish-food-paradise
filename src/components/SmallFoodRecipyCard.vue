@@ -1,7 +1,7 @@
 <template>
     <div class="card" style="width: 20rem">
         <div class="inner">
-            <img class="card-img-top" :src="recipe.img" alt="">
+            <img class="card-img-top" :src="recipe.img" referrerpolicy="no-referrer" alt="">
         </div>
         <div class="card-body">
             <div class="title" style=" margin-bottom: 10px;">
@@ -20,14 +20,14 @@
                 <span :style="{'color': recipe.difficulty[1]}">{{recipe.difficulty[0]}}</span>
             </div>
             <h6>Total time:</h6>
-            <h6 :style="{color: recipe.Tag[1]}">{{recipe.Time}}</h6>
+            <h6 :style="{color: recipe.Tag[1]}">{{recipe.Time}} min</h6>
             <button class="btn" :style="{'background-color': recipe.Tag[1]}"> View recipe <i class="fa fa-arrow-right"></i></button>
         </div>
     </div>
 </template>
 
 <script>
-import Chip from "../chip.vue"
+import Chip from "@/components/chip.vue"
 
 export default {
     name: "SmallRecipeCard",

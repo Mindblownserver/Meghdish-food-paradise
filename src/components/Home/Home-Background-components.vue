@@ -3,8 +3,8 @@
     <div>
       <h1>Creative recipes to satisfy your appatite</h1>
       <p>Our job is to broaden your sphere of knowledge in terms of food from diverse cultures.</p>
-      <a href="/recipes" class="btn pr "><img src="../../assets/cutlry.svg" style="filter: invert(100%);" height="20" width="20" alt=""> | Browse recipes</a>
-      <a href="/tricks" class="btn btn-outline-danger"><i class="fa fa-magic" aria-hidden="true"></i> | See tricks</a>
+      <a href="/recipes" class="btn pr "><i class="fa-solid fa-utensils"></i> | Browse recipes</a>
+      <a href="/tricks" class="btn btn-outline-danger"><i class="fa-solid fa-wand-magic-sparkles"></i> | See tricks</a>
     </div>
     <div class="row">
       <img src="../../assets/home_blob.svg" alt="" height="550" width="470">

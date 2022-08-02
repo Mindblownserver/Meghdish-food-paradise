@@ -18,7 +18,7 @@
                 </div>
                 <h6>Total time:</h6>
                 
-                <h6 :style="{color: recipe.Tag[1]}">{{recipe.Time}}</h6>
+                <h6 :style="{color: recipe.Tag[1]}">{{recipe.Time}} min</h6>
                 <Chip :text="recipe.Tag[0]" :BG="recipe.Tag[1]" @click="filter_food(recipe.Tag[0])"/>
                 <button @click="pushToRecipe" class="btn" :style="{'background-color': recipe.Tag[1]}"> View recipe <i class="fa fa-arrow-right"></i></button>
             </div>
