@@ -6,11 +6,10 @@
         <p>Ever experienced a bug or any sort of inconvenience while surfing for a recipe? Let us know by sending an email to us..Don't worry, we'll never share your email with anyone else.</p>
         <label for="checkcontact" class="contactbutton"><i class="fa-solid icon fa-envelope"></i></label><input id="checkcontact" type="checkbox">
         <form class="contactform">
-            <p class="input_wrapper"><input type="text" name="contact_nom" value=""  id ="contact_nom" placeholder="Username.."><i class="fa-solid i fa-user"></i></p>
-            <p class="input_wrapper"><input type="text" name="contact_email" value=""  id ="contact_email" placeholder="Email.."><i class="fa-solid i fa-envelope"></i></p>
-            <p class="input_wrapper"><input type="text" name="contact_sujet" value=""  id ="contact_sujet" placeholder="Subject (optional)"><i class="fa-solid i fa-circle-info"></i></p>
-            <p class="textarea_wrapper"><textarea name="contact_message" id="contact_message" placeholder="message.."></textarea></p>
-            <p class="submit_wrapper"><input type="button" value="Submit"></p>			
+            <p class="input_wrapper"><input type="text" name="contact_email" value=""  id ="contact_email" placeholder="Email.. (required)"><i class="fa-solid i fa-envelope"></i></p>
+            <p class="input_wrapper"><input type="text" name="contact_sujet" value=""  id ="contact_sujet" placeholder="Subject (required)"><i class="fa-solid i fa-circle-info"></i></p>
+            <p class="textarea_wrapper"><textarea name="contact_message" id="contact_message" placeholder="Tell us what went wrong.. (required)"></textarea></p>
+            <p class="submit_wrapper"><input type="button" @click="sendEmail" value="Submit"></p>			
         </form>
     </article>
 </section>
@@ -18,7 +17,33 @@
 
 <script>
 export default{
-    name:"ContactUs"
+    name:"ContactUs",
+    methods:{
+      sendEmail(){
+        let body = document.getElementById("contact_message").value, subject =document.getElementById("contact_sujet").value, mail = document.getElementById("contact_email").value;
+        // Testing if the labels are empty or not
+        if(body!="" && mail!="" && subject!=""){
+          this.$loadScript("https://smtpjs.com/v3/smtp.js")
+          .then(()=>{
+            // Send mail
+            window.Email.send({
+              SecureToken : "7d913d27-8ca3-4146-be05-3b9789ee44a1",
+              To : 'med.yassine.kharrat@gmail.com',
+              From : 'med.yassine.kharrat@gmail.com',
+              Subject : subject +  ` from ${mail}` ,
+              Body : body
+          }).then(
+            () => alert("Your message is sent to the admin successfully!")
+          );
+          }).catch((e)=>{
+            alert(e + "\nSorry for the inconveniences");
+          });
+        }
+        // Close widget
+        document.getElementById("contact_message").value = "";
+        document.getElementById("checkcontact").checked = "";
+      }
+    }
 }
 </script>
 <style scoped>
