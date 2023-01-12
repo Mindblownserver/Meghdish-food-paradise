@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@mdi/font": "5.9.55",
+    "ansi-regex": "^6.0.1",
     "browserify-fs": "^1.0.0",
     "core-js": "^3.6.5",
     "firebase": "^8.10.1",
