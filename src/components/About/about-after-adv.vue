@@ -1,8 +1,5 @@
 <template>
     <div>
-        <h1>Found the website useful?</h1>
-        <h3>Share it</h3>
-        <button type="button"  class="btn btn-outline-success btn-lg">Share</button>
     </div>
     <!---<div v-scrollanimation style="margin-top: 50px">
         <svg width="1035" height="177" viewBox="0 0 2055 797" fill="none" xmlns="http://www.w3.org/2000/svg">

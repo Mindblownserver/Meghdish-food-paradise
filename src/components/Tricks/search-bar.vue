@@ -3,7 +3,7 @@
         <div class="input-group-prepend">
             <span class="input-group-text" style="background-color:#FFFF;border-radius:16px 0 0 16px" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
         </div>
-         <input type="text" class="form-control" placeholder="Search food" id="searchbar" aria-describedby="basic-addon2" @keyup="search">
+         <input type="text" class="form-control" placeholder="Search tricks" id="searchbar" aria-describedby="basic-addon2" @keyup="search">
     </div>
     <!--Chips-->
 </template>

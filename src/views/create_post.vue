@@ -50,7 +50,7 @@
                 </article>
                 <article>
                   <i class="far fa-clock"></i>
-                  <h5>cook time</h5>
+                  <h5>prep. time</h5>
                   <p><input type="number"   max="999" min="0" class="form-control" v-model="cookingTime" style="max-width:100px">min.</p>
                 </article>
                 <article class="diff">
@@ -117,7 +117,7 @@ export default {
     props: ["marked"],
     data() {
         return {
-            accessToken: false,
+            accessToken: true,
             description: "",
             imgUrl: "",
             title:"",
@@ -164,8 +164,10 @@ export default {
       },
       preview(){
         // Get ingridientElements
+        let food = db.collection('Food recipies').doc('Food list').collection('food');
         let ingridientElements = document.querySelector('#ingri').getElementsByTagName("input")
         let ingridients = []
+        let snapshot = food.where("title","==",this.title).get()
         for(let i = 0; i< ingridientElements.length;i++){
           ingridients.push(ingridientElements[i].value)
         }
@@ -215,7 +217,13 @@ export default {
         "instructions": instructions
         }
         // Upload to firebase preview collection
-        db.collection('preview').doc('recipeMockup').set(recipe);
+        if(snapshot.empty){
+          db.collection('preview').doc('recipeMockup').set(recipe);
+          }
+        else{
+          alert("You can't post something that has the same title as another recipe!");
+          }
+        
       },
     }
 }

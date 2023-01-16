@@ -19,7 +19,7 @@
 								</article>
 								<article>
 									<i class="far fa-clock"></i>
-									<h5>cook time</h5>
+									<h5>prep. time</h5>
 									<p>{{cookingTime}} min.</p>
 								</article>
 								<article>
@@ -58,7 +58,8 @@
 					</article>
 					</Transition>
 				</section>
-				<button type="button" class="btn btn-outline-success" @click="AddRecipe">Like it? Submit it!</button>
+				<button type="button" class="btn btn-outline-success" @click="AddRecipe">Submit it as a recipe</button>
+				<button type="button" class="btn btn-outline-primary" @click="AddTrick">Submit it as a trick</button>
 				<router-link to="/create"><button type="button" class="btn btn-outline-warning">Problem? return to create section!</button></router-link>
 			</div>
 		</main>
@@ -90,7 +91,7 @@ export default {
 		},
 		
 		created(){
-				const getMockup =db.collection('preview').doc('recipeMockup')
+				const getMockup =db.collection('preview').doc('Mockup')
 				getMockup.get().then(doc => {
 						console.log(doc.data())
 						// reinitializing variables the hard way
@@ -126,6 +127,9 @@ export default {
 					"ingridients": this.ingridients
 					}
 				DBList.set(recipe)
+			},
+			AddTrick(){
+
 			}
 		}
 }
@@ -137,7 +141,9 @@ export default {
 ::before {
 	box-sizing: border-box;
 }
-
+.btn{
+	margin-left: 10px;
+}
 :root {
 	--borderRadius: 0.25rem;
 	--letterSpacing: 1px;
