@@ -18,6 +18,38 @@
                     <div class="input">
                         <input type="password" v-model="confirm" placeholder="Confirm password.." name="">
                     </div>
+                    <div>
+                        <span>What's your favourite food category?</span>
+                        <br>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="0" value="Bread" checked>
+                            <label class="form-check-label" for="inlineRadio1">Bread</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="1" value="Juice">
+                            <label class="form-check-label" for="inlineRadio2">Juice</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="2" value="Meat">
+                            <label class="form-check-label" for="inlineRadio1">Meat</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="3" value="Pasta">
+                            <label class="form-check-label" for="inlineRadio2">Pasta</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="4" value="Sauces">
+                            <label class="form-check-label" for="inlineRadio2">Sauces</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="5" value="Vegetarian">
+                            <label class="form-check-label" for="inlineRadio1">Vegetarian</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="6" value="Breakfast">
+                            <label class="form-check-label" for="inlineRadio2">Breakfast</label>
+                        </div>
+                    </div>
                     <div class="form-check form-check-inline remember">
                         <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
                         <label class="form-check-label" for="inlineCheckbox1">Remember me</label>
@@ -30,7 +62,7 @@
 
                     </div>
                 </form>
-                <h3>Sign up with social media</h3>
+                <h4>Sign up with social media</h4>
                 <ul class="sci">
                     <li><i class="fab fa-facebook-f"></i></li>
                     <li><i class="fab fa-google"></i></li>
@@ -38,13 +70,13 @@
             </div>
         </div>
     </section>
-    
 </template>
 <script>
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import db from "../fb.js"
 export default {
-    name: "Sign in",
+    name: "Sign up",
     data() {
         return {
             Email: "",
@@ -54,11 +86,28 @@ export default {
         }
     },
     methods: {
-        createAccount(){
+        async createAccount(){
             const auth = firebase.auth()
-            console.log(this.Email, this.Password)
+            let favCategory = db.collection('Food recipies').doc('favourite Category').collection('user');
+            let radios = document.getElementsByClassName("form-check-input")
+            let i = 0
+            // get selected
+            while (i<radios.length) {
+                if (radios[i].checked){
+                    break;
+                }
+                else{
+                    i++
+                }
+            }
+            const fav = {
+                category: radios[i].value
+            };
             if(this.Password === this.confirm){
-                auth.createUserWithEmailAndPassword(this.Email, this.Password).then((userCredentions) => {
+                await auth.createUserWithEmailAndPassword(this.Email, this.Password).then((userCredentions) => {
+                    // add user favourite category
+                    favCategory.doc(auth.currentUser.uid).set(fav);
+                    // return to home page
                     this.$router.replace({ path: '/' })
                     return userCredentions.user.updateProfile({
                         displayName: this.username
@@ -82,6 +131,9 @@ export default {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+.form-check{
+    margin:2.5px;
 }
 section{
     position: relative;
@@ -170,7 +222,7 @@ section .content .form .remember{
     font-weight: 400;
     font-size: 14px;
 }
-section .content .form h3{
+section .content .form h4{
     color:rgb(228, 99, 39);
     text-align: center;
     margin: 80px 0 10px;

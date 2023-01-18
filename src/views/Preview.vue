@@ -113,8 +113,8 @@ export default {
 				}
 		},
 		methods:{
-			AddRecipe(){
-				const DBList = db.collection("Food recipies").doc("Food list").collection('food').doc(this.title)
+			async AddRecipe(){
+				const DBList = await db.collection("Food recipies").doc("Food list").collection('food').doc(this.title);
 				const recipe = {
 					"title": this.title,
 					"image": this.imgUrl,
@@ -126,10 +126,21 @@ export default {
 					"instructions": this.instructions,
 					"ingridients": this.ingridients
 					}
-				DBList.set(recipe)
+				DBList.set(recipe);
 			},
-			AddTrick(){
-
+			async AddTrick(){
+				const DBList = await db.collection("Food Tricks").doc("Trick list").collection('trick').doc(this.title);
+				const recipe = {
+					"title": this.title,
+					"image": this.imgUrl,
+					"desc": this.description,
+					"Time": this.cookingTime,
+					"difficulty": [this.difficulty,this.difficultyColor],
+					"stars": 0,
+					"instructions": this.instructions,
+					"ingridients": this.ingridients
+					}
+				DBList.set(recipe);
 			}
 		}
 }

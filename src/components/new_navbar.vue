@@ -22,7 +22,7 @@
         </div>
         <div v-else class="rightest" >
           <li class="active frame_2"><div id="login"><a href="/login">Login</a></div></li>
-          <li class="active frame_3"><div id="register"><a href="/signin">Register</a></div></li>
+          <li class="active frame_3"><div id="register"><a href="/signup">Register</a></div></li>
         </div>
 
         <ul class="active" style="display:none">
@@ -165,8 +165,8 @@ li.right a::after{
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
   opacity: 0;
-  transform: translateX(100px) translateY(40px);
-  transition: all .9s cubic-bezier(0.35,-0.01, 0.21, 0.97);
+  transform: translateX(-90px) translateY(40px);
+  transition: all .9s cubic-bezier(0.25, 1.03, 0.8, 0.92);
 }
 .dropdown-content a {
   float: none;

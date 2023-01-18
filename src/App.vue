@@ -1,19 +1,19 @@
 <template>
   <!--Welcome to my humble website guys!-->
   <div v-if="large">
-    <header v-if="this.$route.path!== '/signin' && this.$route.path !== '/login'">
+    <header v-if="this.$route.path!== '/signup' && this.$route.path !== '/login'">
       <Navbar :loggedIn="loggedIn" @logout="logout" :username="displayname" :email="email"/>
     </header>
   </div>
   <div v-else>
-    <header v-if="this.$route.path!== '/signin' && this.$route.path !== '/login'">
+    <header v-if="this.$route.path!== '/signup' && this.$route.path !== '/login'">
       <Hamberger :loggedIn="loggedIn" @logout="logout"/>
     </header>
   </div>
   
   <router-view/>
 
-  <footer v-if="this.$route.path!== '/signin' && this.$route.path !== '/login'">
+  <footer v-if="this.$route.path!== '/signup' && this.$route.path !== '/login'">
     <Foooter/>
   </footer>
 
@@ -46,7 +46,7 @@ export default {
   methods: {
     logout(){
       firebase.auth().signOut().then(() => {
-        console.log("Logged OUT IMMEDIATLY :)")
+        console.log("Get out of my authentication house, my dude :)")
       }).catch((error) => {
         alert(error)
       });

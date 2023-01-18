@@ -218,7 +218,7 @@ export default {
         }
         // Upload to firebase preview collection
         if(snapshot.empty){
-          db.collection('preview').doc('recipeMockup').set(recipe);
+          db.collection('preview').doc('Mockup').set(recipe);
           }
         else{
           alert("You can't post something that has the same title as another recipe!");
