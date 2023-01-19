@@ -22,15 +22,27 @@ export default {
   },
   created() {
     firebase.auth().onAuthStateChanged((user) => {
-      if (user){
-        console.log("User logged in"); // Trying to either put the default preference section or make it personal if the user is logged in!
+      if (!user){
+         // Trying to either put the default preference section or make it personal if the user is logged in!
+        //  link the small recipe cards to actual cards!
+        db.collection("SneakpeakFood").get().then((Snapshots) => {
+          Snapshots.forEach((doc) => {
+              this.Sneakpeak_recepies.push(doc.data())
+          })
+        });
+      }
+      else{
+        let favCategoryUser = db.doc(`/Food recipies/favourite Category/user/${user.uid}`);
+        favCategoryUser.get().then(doc=>{ 
+          db.collection("Food recipies").doc("Food list").collection("food").where("Tag","array-contains",doc.data().category).limit(6).get().then((snapshots)=>{
+          snapshots.forEach((snapshot) => {
+              this.Sneakpeak_recepies.push(snapshot.data())
+          })
+        })
+        })
       }
     })
-    db.collection("SneakpeakFood").get().then((Snapshots) => {
-      Snapshots.forEach((doc) => {
-          this.Sneakpeak_recepies.push(doc.data())
-      })
-    });
+    
     
   },
 };

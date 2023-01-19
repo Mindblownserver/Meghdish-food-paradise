@@ -15,6 +15,7 @@
             <div class="dropdown-content">
               <h5 style="margin-top: 20px;">{{username}}</h5>
               <p style="color: silver;">{{email}}</p>
+              <a href="/saves"><i class="fa-solid fa-bookmark" style="margin-right: 20px"></i>Saves</a>
               <hr>
               <a @click="logout"><i class="fas fa-user-alt-slash"  style="margin-right: 20px"></i>Log out</a>
             </div>
@@ -76,7 +77,9 @@ export default{
   transition: 0.4s;
   left: 0;
 }
-
+a{
+  cursor:pointer;
+}
 .middle{
   display: flex;
   justify-content: center;
