@@ -92,6 +92,9 @@ export default {
   --fixed-width: 600px;
 
 }
+h4{
+  text-align: start;
+}
 
 a {
   text-decoration: none;

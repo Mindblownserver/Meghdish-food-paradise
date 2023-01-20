@@ -14,14 +14,14 @@
             </div>
             
 
-            <p class="Desc">{{recipe.desc}}</p>
+            <p class="Desc">{{snippet(recipe.desc)}}</p>
             <div class="Other Content" style=" margin: 10px;">
                 <span>Difficulty: </span>
                 <span :style="{'color': recipe.difficulty[1]}">{{recipe.difficulty[0]}}</span>
             </div>
             <h6>Total time:</h6>
             <h6 :style="{color: recipe.Tag[1]}">{{recipe.Time}} min</h6>
-            <button class="btn" :style="{'background-color': recipe.Tag[1]}"> View recipe <i class="fa fa-arrow-right"></i></button>
+            <button class="btn" @click="pushToRecipe" :style="{'background-color': recipe.Tag[1]}"> View recipe <i class="fa fa-arrow-right"></i></button>
         </div>
     </div>
 </template>
@@ -43,11 +43,21 @@ export default {
     components: {
         Chip,
     },
+    methods: {
+        snippet(value){
+            return value.slice (0,50) + ' ...'
+        },
+        pushToRecipe(){
+            let Recipe = this.recipe.title;
+            this.$router.push({name:`recipe` , query:{data: Recipe} })
+        }
+    },
     created() {
         const starPercentage = (this.recipe.stars / 5) *100;
         const starPercentageRounded = `${Math.round(starPercentage / 10) * 10}%`;
         this.Stars = starPercentageRounded;
     },
+
 }
 </script>
 

@@ -39,10 +39,6 @@ export default {
 </script>
 
 <style scoped>
-.mini_title{
-    font-weight: bolder;
-}
-
 .card{
     display: flex;
     width: 50rem;
@@ -128,7 +124,7 @@ input#rate-5:checked ~ label{
   content: "I don't like it ";
 }
 #rate-3:checked ~ form header:before{
-  content: "It is awesome ";
+  content: "Not too shabby ";
 }
 #rate-4:checked ~ form header:before{
   content: "I just like it ";
