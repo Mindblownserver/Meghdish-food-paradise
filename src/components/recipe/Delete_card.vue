@@ -6,6 +6,7 @@
         <!--I'm working on this site for more than 2 months and It is really getting maintained :I. Edit: I have started working in this since 20th August ,2021. Time sure flies!-->
         <div>
             <a href="/recipes/all" class="btn btn-danger" @click="deletePost"><i class="fa-solid fa-trash"></i> |Delete</a>
+            <!-- To somehow make a heads up display without the need of a modal, we need to make a dropdown thing similar to the logout button! -->
         </div>
     </div>
 </template>

@@ -123,6 +123,7 @@ export default {
 					"Time": this.cookingTime,
 					"difficulty": [this.difficulty,this.difficultyColor],
 					"stars": 0,
+					"ratedBy": 0,
 					"instructions": this.instructions,
 					"ingridients": this.ingridients
 					}
@@ -137,6 +138,7 @@ export default {
 					"Time": this.cookingTime,
 					"difficulty": [this.difficulty,this.difficultyColor],
 					"stars": 0,
+					"ratedBy": 0,
 					"instructions": this.instructions,
 					"ingridients": this.ingridients
 					}

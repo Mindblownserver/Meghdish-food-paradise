@@ -4,7 +4,7 @@
         <Transition mode="in-out" appear name="slide-fade">
           <section  class="recipe-hero card">
             <img
-              :src="recipe.img"
+              :src="recipe.image"
               alt="insert picture"
               class="img recipe-hero-img"/>
             <article class="recipe-info" style="text-align:start;">

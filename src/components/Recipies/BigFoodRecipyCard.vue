@@ -2,7 +2,7 @@
     <div class="card">
         <div class="row">
             <div class="col-md-5 inner">
-                <img :src="recipe.img" alt="" referrerpolicy="no-referrer" class="img-fluid img">
+                <img :src="recipe.image" alt="" referrerpolicy="no-referrer" class="img-fluid img">
             </div>
             <div id="text" class="col-md-auto">
                 <div class="title" style="margin-bottom: 10px">
@@ -21,6 +21,9 @@
                 <h6 :style="{color: recipe.Tag[1]}">{{recipe.Time}} min</h6>
                 <Chip :text="recipe.Tag[0]" :BG="recipe.Tag[1]" @click="filter_food(recipe.Tag[0])"/>
                 <button @click="pushToRecipe" class="btn" :style="{'background-color': recipe.Tag[1]}"> View recipe <i class="fa fa-arrow-right"></i></button>
+            </div>
+            <div id="text" class="col">
+                <button type="submit" class="save"><i class="fa-regular fa-bookmark" style="margin-right: 20px"></i></button>
             </div>
         </div>
     </div>
@@ -157,5 +160,17 @@ img{
 }
 .card:hover img{
     transform: scale(1.2);
+}
+.save{
+    border-radius: 20px;
+    margin-top: 24px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+.fa-bookmark{
+    font-size: 1.3rem;
+    color: var(--main-web-color);
 }
 </style>
