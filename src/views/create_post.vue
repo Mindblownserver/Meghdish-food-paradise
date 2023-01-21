@@ -103,7 +103,7 @@
         </section>
       </div>
     </main>
-    <router-link to="/create/preview"><button type="button" class="btn btn-outline-info" @click="preview">Preview</button></router-link>
+    <button type="button" class="btn btn-outline-info" @click="preview">Preview</button>
     </div>
     <div v-else>
         <p>illigal</p>
@@ -217,8 +217,9 @@ export default {
         "instructions": instructions
         }
         // Upload to firebase preview collection
-        if(snapshot.empty){
+        if(snapshot.empty == undefined){
           db.collection('preview').doc('Mockup').set(recipe);
+          this.$router.push({ path: '/create/preview' });
           }
         else{
           alert("You can't post something that has the same title as another recipe!");

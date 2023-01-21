@@ -46,11 +46,12 @@ export default {
             const auth = firebase.auth()
             // console.log(this.Email, this.Password , this.checkbox)
             await auth.setPersistence(this.checkbox ? firebase.auth.Auth.Persistence.LOCAL : firebase.auth.Auth.Persistence.SESSION).then( () => {
-                return  auth.signInWithEmailAndPassword(this.Email, this.Password).then().catch(error =>{
+                return  auth.signInWithEmailAndPassword(this.Email, this.Password).then(()=>{
+                    this.$router.replace({ path: '/' });
+                }).catch(error =>{
                     alert(error.message)
                 })
             })
-            this.$router.replace({ path: '/' })
         }
     },
 

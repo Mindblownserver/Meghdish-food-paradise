@@ -5,8 +5,8 @@
     <div class="RatingContent">
         <RateRecipe />
     </div>
-    <div>
-        <Delete_card />
+    <div v-if="isAdmin">
+        <Delete_card :recipeID="recipeID" />
     </div>
 </template>
 
@@ -23,7 +23,9 @@ export default {
         Delete_card
     },
     props:{
-        recipe: Object
+        recipe: Object,
+        isAdmin: Boolean,
+        recipeID:String
     }
 }
 </script>

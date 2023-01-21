@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h3>Food Tricks</h3>
+        <h3>Cuisine tricks</h3>
         <SneakpeakFoodCards :Sneakpeaks="SneakPeak_Tricks" />
     </div>
 </template>

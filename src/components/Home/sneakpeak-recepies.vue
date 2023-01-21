@@ -1,7 +1,7 @@
 <template>
     <div>
-        <span>-popular selects-</span>
-        <h3>Trending Food</h3>
+        <span>-Chef selects-</span>
+        <h3>Popular delicacies</h3>
         <div class="center">
             <SneakpeakFoodCards :Sneakpeaks="Sneakpeak_recepies" />
         </div>
