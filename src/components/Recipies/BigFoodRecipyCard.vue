@@ -22,9 +22,9 @@
                 <Chip :text="recipe.Tag[0]" :BG="recipe.Tag[1]" @click="filter_food(recipe.Tag[0])"/>
                 <button @click="pushToRecipe" class="btn" :style="{'background-color': recipe.Tag[1]}"> View recipe <i class="fa fa-arrow-right"></i></button>
             </div>
-            <div id="text" class="col">
+            <!-- <div id="text" class="col">
                 <button type="submit" class="save"><i class="fa-regular fa-bookmark" style="margin-right: 20px"></i></button>
-            </div>
+            </div> -->
         </div>
     </div>
 </template>
@@ -161,7 +161,7 @@ img{
 .card:hover img{
     transform: scale(1.2);
 }
-.save{
+/* .save{
     border-radius: 20px;
     margin-top: 24px;
     border: none;
@@ -172,5 +172,5 @@ img{
 .fa-bookmark{
     font-size: 1.3rem;
     color: var(--main-web-color);
-}
+} */
 </style>
