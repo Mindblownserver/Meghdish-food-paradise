@@ -38,6 +38,10 @@
               <input class="form-check-input" type="radio" name="inlineRadioOptions" id="6" value="Breakfast">
               <label class="form-check-label" for="inlineRadio2">Breakfast</label>
             </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="7" value="">
+              <label class="form-check-label" for="inlineRadio2">Trick</label>
+            </div>
             <div class="input-group">
                 <textarea class="form-control p pre-markdown" v-model="description" placeholder="Description..." aria-label="With textarea"></textarea>
                 
@@ -112,12 +116,14 @@
 
 <script>
 import db from "../fb.js"
+import 'firebase/auth';
+import firebase from 'firebase/app';
 export default {
     name: "Create",
     props: ["marked"],
     data() {
         return {
-            accessToken: true,
+            accessToken: false,
             description: "",
             imgUrl: "",
             title:"",
@@ -194,7 +200,7 @@ export default {
             break;
         } 
         // get Tag & its correspondent color 
-        let FdTagsColors = ["#B9721F","#6A2FE8","#DC1C1C","#EC994B","#d9c007","#0D8F21","#1BC8C8"]
+        let FdTagsColors = ["#B9721F","#6A2FE8","#DC1C1C","#EC994B","#d9c007","#0D8F21","#1BC8C8",""]
         let radios = document.getElementsByClassName("form-check-input")
         let i = 0
         while (i<radios.length) {
@@ -226,7 +232,15 @@ export default {
           }
         
       },
+    },
+    async created(){
+      firebase.auth().onAuthStateChanged((user) => {
+        if (user.uid == "tuPfqpaqcMZ7uxRLi1UR3x4o8lX2"){
+          this.accessToken = true;
+        }
+      });
     }
+      
 }
 </script>
 

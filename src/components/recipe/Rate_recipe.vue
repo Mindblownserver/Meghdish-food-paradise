@@ -24,7 +24,7 @@
                         <textarea cols="30" placeholder="Describe your experience.."></textarea>
                     </div>
                     <div class="btn">
-                        <button type="submit" class="btn btn-outline-success">Submit</button>
+                        <button type="submit" class="btn btn-outline-success" @click="submit">Submit</button>
                     </div>
                     </form>
                 </div>
@@ -34,7 +34,13 @@
 
 <script>
 export default {
-    name: 'RateRecipe'
+    name: 'RateRecipe',
+    emits: ["SubmitRating"],
+    methods:{
+      submit(){
+        this.$emit("SubmitRating");
+      }
+    }
 }
 </script>
 

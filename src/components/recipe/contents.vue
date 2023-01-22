@@ -3,7 +3,7 @@
         <Uppercontent  :recipe="recipe"/>
     </div>
     <div class="RatingContent">
-        <RateRecipe />
+        <RateRecipe @submitRating="submitRating"/>
     </div>
     <div v-if="isAdmin">
         <Delete_card :recipeID="recipeID" />
@@ -22,10 +22,16 @@ export default {
         RateRecipe,
         Delete_card
     },
+    emits: ["submitRating"],
     props:{
         recipe: Object,
         isAdmin: Boolean,
         recipeID:String
+    },
+    methods:{
+        submitRating(){
+            this.$emit("submitRating");
+        }
     }
 }
 </script>

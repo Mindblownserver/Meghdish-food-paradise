@@ -58,7 +58,7 @@
 					</article>
 					</Transition>
 				</section>
-				<router-link to="/create/recipes/all"><button type="button" class="btn btn-outline-success" @click="AddRecipe">Submit it as a recipe</button></router-link>
+				<router-link to="/recipes/all"><button type="button" class="btn btn-outline-success" @click="AddRecipe">Submit it as a recipe</button></router-link>
 				<router-link to="/recipes/all"><button type="button" class="btn btn-outline-primary" @click="AddTrick">Submit it as a trick</button></router-link>
 				<router-link to="/create"><button type="button" class="btn btn-outline-warning">Problem? return to create section!</button></router-link>
 			</div>
