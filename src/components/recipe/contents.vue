@@ -3,7 +3,7 @@
         <Uppercontent  :recipe="recipe"/>
     </div>
     <div class="RatingContent">
-        <RateRecipe @submitRating="submitRating"/>
+        <RateRecipe :recipeID="recipeID" @submitRating="submitRating"/>
     </div>
     <div v-if="isAdmin">
         <Delete_card :recipeID="recipeID" />
@@ -12,6 +12,9 @@
 
 
 <script>
+import db from "../../fb"
+import 'firebase/auth';
+import firebase from 'firebase/app';
 import Uppercontent from "@/components/recipe/Uppercontent.vue"
 import RateRecipe from "@/components/recipe/Rate_recipe.vue"
 import Delete_card from '@/components/recipe/Delete_card.vue'
@@ -22,17 +25,40 @@ export default {
         RateRecipe,
         Delete_card
     },
-    emits: ["submitRating"],
     props:{
         recipe: Object,
         isAdmin: Boolean,
         recipeID:String
     },
     methods:{
-        submitRating(){
-            this.$emit("submitRating");
-        }
+        submit(){
+            firebase.auth().onAuthStateChanged(user => {
+                if(user){
+                // User is logged in
+                    db.collection("Food recipies").doc("Food list").collection('food').doc(this.recipeID).update({})
+                }
+            })
+      },
+      sendFeedback(user, feedback, review){
+        if(feedback!=""){
+          this.$loadScript("https://smtpjs.com/v3/smtp.js")
+          .then(()=>{
+            // Send mail
+            window.Email.send({
+              SecureToken : "7d913d27-8ca3-4146-be05-3b9789ee44a1",
+              To : 'med.yassine.kharrat@gmail.com',
+              From : 'med.yassine.kharrat@gmail.com',
+              Subject : `A feedback about the ${this.recipeID} recipe` ,
+              Body : feedback + `\n This user rated us with "${review}"`
+          }).then(
+            () => alert(`Thank you for your feedback ${user}`)
+          );
+          }).catch((e)=>{
+            alert(e + "\nSorry for the inconveniences");
+          });
+      }
     }
+  }
 }
 </script>
 

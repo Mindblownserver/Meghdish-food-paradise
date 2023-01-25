@@ -109,7 +109,7 @@ export default {
 		},
 		computed: { // In computed, the methode compiledMarkdown occures whenever description is changed!
 				compiledMarkdown: function() {
-						return marked(this.description);
+						return marked(this.description); // Make some steps marked
 				}
 		},
 		methods:{

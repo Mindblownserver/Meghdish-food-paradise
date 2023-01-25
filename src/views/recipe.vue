@@ -3,7 +3,7 @@
     When I said from scratch, I meant from the vuejs starter hello world project
     Of course, this project would never be possible without the help of multiple youtube channels!-->
     <div>
-        <Contents @submitRating="submitRating" :recipe= "recipeData" :recipeID="recipeID" :isAdmin="isAdmin"/>
+        <Contents :recipe= "recipeData" :recipeID="recipeID" :isAdmin="isAdmin"/>
     </div>
 
 </template>
@@ -23,7 +23,7 @@ export default {
         return{
             recipeData:{},
             isAdmin: false,
-            recipeID: ""
+            recipeID: "",
         }
     },
     async created(){
@@ -38,9 +38,5 @@ export default {
             }
         })
     },
-    methods:{
-        submitRating(){
-        }
-    }
 }
 </script>

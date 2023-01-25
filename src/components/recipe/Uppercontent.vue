@@ -10,7 +10,7 @@
             <article class="recipe-info" style="text-align:start;">
               <h2>{{recipe.title}}</h2>
               <Chip :text="recipe.Tag[0]" :BG="recipe.Tag[1]"/>
-              <p>{{recipe.desc}}</p>
+              <p v-html="compiledMarkdown"></p>
               <div class="recipe-icons">
                 <article>
                   <i class="far fa-star"></i>
@@ -65,7 +65,7 @@
 
 <script>
 import Chip from "@/components/chip.vue"
-
+import marked from "marked"
 export default {
     name: 'Uppervalue',
     props:{
@@ -73,6 +73,11 @@ export default {
     },
     components: {
 			Chip
+		},
+    computed: { // In computed, the methode compiledMarkdown occures whenever description is changed!
+				compiledMarkdown: function() {
+						return marked(this.recipe.desc); // Make some steps marked
+				}
 		},
   }
 </script>
@@ -139,7 +144,7 @@ Recipe Template
 }
 
 .recipe-hero-img {
-  height: 300px;
+  /* height: 300px; */
   border-radius: var(--borderRadius);
 }
 

@@ -19,13 +19,13 @@
                     <input type="radio" name="rate" id="rate-1">
                     <label for="rate-1" class="fas fa-star"></label>
                     <form action="#">
-                    <header></header>
-                    <div class="textarea">
-                        <textarea cols="30" placeholder="Describe your experience.."></textarea>
-                    </div>
-                    <div class="btn">
-                        <button type="submit" class="btn btn-outline-success" @click="submit">Submit</button>
-                    </div>
+                      <header class="review"></header>
+                      <div class="textarea">
+                          <textarea class="Feedback" cols="30" placeholder="Describe your experience.."></textarea>
+                      </div>
+                      <div class="btn">
+                          <a class="btn btn-outline-success" @click="Rating">Submit</a>
+                      </div>
                     </form>
                 </div>
             </div>
@@ -35,12 +35,20 @@
 <script>
 export default {
     name: 'RateRecipe',
+    props:{
+      recipeID: String
+    },
     emits: ["SubmitRating"],
     methods:{
-      submit(){
+      Rating(){
+        let feedback = document.getElementsByClassName("Feedback").value;
+        const styles = window.getComputedStyle(document.getElementsByClassName('review'), '::before');
+        const review = styles.content;
+        console.log(feedback, review);
         this.$emit("SubmitRating");
+        // Message for the future, you must emit the number of stars rated to the parent component aka the contents!
       }
-    }
+  }
 }
 </script>
 
@@ -178,15 +186,17 @@ form .btn{
   width: 100%;
   margin: 15px 0;
 }
-form .btn button{
-  height: 100%;
+form .btn a{
+  height: 80%;
   width: 100%;
   outline: none;
-  font-size: 17px;
+  font-size: 20px;
   font-weight: 500;
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.3s ease;
 }
-
+form .btn a:hover{
+  color: white;
+}
 </style>
