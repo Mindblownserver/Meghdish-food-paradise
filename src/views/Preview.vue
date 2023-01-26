@@ -10,7 +10,7 @@
 						<article class="recipe-info" style="text-align:start;">
 							<h2>{{title}}</h2>
 							<Chip :text="FdTags[0]" :BG="FdTags[1]"/>
-							<p v-html="compiledMarkdown" class="markdown"></p>
+							<p v-html="MarkedDesc" class="markdown"></p>
 							<div class="recipe-icons">
 								<article>
 									<i class="far fa-star"></i>
@@ -42,7 +42,7 @@
 								<p>step {{index+1}}</p>
 								<div></div>
 							</header>
-							<p>{{instruction}}</p>
+							<p >{{instruction}}</p>
 						</div>
 						<!-- end of single instruction -->
 					</article>
@@ -108,9 +108,9 @@ export default {
 				})
 		},
 		computed: { // In computed, the methode compiledMarkdown occures whenever description is changed!
-				compiledMarkdown: function() {
+				MarkedDesc: function() {
 						return marked(this.description); // Make some steps marked
-				}
+				},
 		},
 		methods:{
 			async AddRecipe(){

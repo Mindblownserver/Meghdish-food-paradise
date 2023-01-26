@@ -39,6 +39,10 @@ export default {
                 }
             })
       },
+      submitRating(star,feedback){
+        console.log(star, feedback);
+        // Now you need to update the ratedBy and stars field in firebase + send email notifying admin of the rated post
+      },
       sendFeedback(user, feedback, review){
         if(feedback!=""){
           this.$loadScript("https://smtpjs.com/v3/smtp.js")

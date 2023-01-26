@@ -21,7 +21,7 @@
                     <form action="#">
                       <header class="review"></header>
                       <div class="textarea">
-                          <textarea class="Feedback" cols="30" placeholder="Describe your experience.."></textarea>
+                          <textarea id="Feedback" cols="30" placeholder="Describe your experience.."></textarea>
                       </div>
                       <div class="btn">
                           <a class="btn btn-outline-success" @click="Rating">Submit</a>
@@ -41,11 +41,30 @@ export default {
     emits: ["SubmitRating"],
     methods:{
       Rating(){
-        let feedback = document.getElementsByClassName("Feedback").value;
-        const styles = window.getComputedStyle(document.getElementsByClassName('review'), '::before');
-        const review = styles.content;
-        console.log(feedback, review);
-        this.$emit("SubmitRating");
+        let feedback = document.getElementById("Feedback").value;
+        let star5= document.getElementById("rate-5");
+        let star4= document.getElementById("rate-4");
+        let star3= document.getElementById("rate-3");
+        let star2= document.getElementById("rate-2");
+        let star =0;
+        /* const styles = window.getComputedStyle(document.getElementsByClassName('review'), '::before');
+        const review = styles.content; */
+        if(star5.checked){
+          star = 5;
+        }
+        else if(star4.checked){
+          star = 4
+        }
+        else if(star3.checked){
+          star = 3;
+        }
+        else if(star2.checked){
+          star = 2;
+        }
+        else{
+          star = 1;
+        }
+        this.$emit("SubmitRating",star,feedback);
         // Message for the future, you must emit the number of stars rated to the parent component aka the contents!
       }
   }
