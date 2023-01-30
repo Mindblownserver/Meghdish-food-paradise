@@ -55,6 +55,7 @@ export default {
   },
     created() {
       document.title = "Megdish Food"
+      console.log("Food version 2.1");
       firebase.auth().onAuthStateChanged((user) => {
       if (user){
         this.loggedIn = true;

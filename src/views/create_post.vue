@@ -235,7 +235,7 @@ export default {
     },
     async created(){
       firebase.auth().onAuthStateChanged((user) => {
-        if (user.uid == "tuPfqpaqcMZ7uxRLi1UR3x4o8lX2"){
+        if (user.uid == "tuPfqpaqcMZ7uxRLi1UR3x4o8lX2" || user.uid =="mH6S3GS603YFfVLAKfLOckc16FI3"){
           this.accessToken = true;
         }
       });
