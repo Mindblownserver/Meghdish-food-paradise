@@ -8,7 +8,7 @@
                 <div class="title" style="margin-bottom: 10px">
                     <h3 style="margin-bottom: -0.005px" class="card-title mt-3">{{recipe.title}}</h3>
                     <div class="stars-outer">
-                        <div class="stars-inner" :style="{'width': Stars}"></div>
+                        <div class="stars-inner" :style="{'width': rating}"></div>
                     </div>
                 </div>
                 <p class="Desc">{{snippet(recipe.desc)}}</p>
@@ -40,7 +40,7 @@ export default {
     emits: ["filter"],
     data() {
         return {
-            Stars: String,
+            rating: String,
             tag_id: String,
         }
     },
@@ -58,9 +58,10 @@ export default {
     },
     created() {
         //numbers to stars
-        const starPercentage = (this.recipe.stars / 5) *100;
+        let averageStar = this.recipe.stars/this.recipe.ratedBy;
+        const starPercentage = (averageStar / 5) *100;
         const starPercentageRounded = `${Math.round(starPercentage / 10) * 10}%`;
-        this.Stars = starPercentageRounded;
+        this.rating = starPercentageRounded;
         // db.collection("Food recipies").doc("Food list").collection("food").doc("Spaghetti").add({
         //     title: "Spaghetti",
         //     img: "https://firebasestorage.googleapis.com/v0/b/meghdish-food-paradise.appspot.com/o/Recipies%2FMUi327LQaOnMCKxEvlR8%2FMUi327LQaOnMCKxEvlR8.png?alt=media&token=6100e6dd-85c6-4ccf-bce0-65e604ce6863",

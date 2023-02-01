@@ -31,16 +31,18 @@ export default {
         recipeID:String
     },
     methods:{
-        submit(){
-            firebase.auth().onAuthStateChanged(user => {
-                if(user){
-                // User is logged in
-                    db.collection("Food recipies").doc("Food list").collection('food').doc(this.recipeID).update({})
-                }
-            })
-      },
       submitRating(star,feedback){
         console.log(star, feedback);
+        firebase.auth().onAuthStateChanged(user => {
+            if(user){
+            // User is logged in
+                let RatedBy = this.recipe.ratedBy +1;
+                db.collection("Food recipies").doc("Food list").collection('food').doc(this.recipeID).update({ratedBy: RatedBy, stars: star}).then(()=>{
+                    this.sendFeedback(user.email,feedback,star);
+                });
+
+            }
+        })
         // Now you need to update the ratedBy and stars field in firebase + send email notifying admin of the rated post
       },
       sendFeedback(user, feedback, review){

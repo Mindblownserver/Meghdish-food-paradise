@@ -7,7 +7,7 @@
             <div class="title" style=" margin-bottom: 10px;">
                 <h5 style="margin-bottom: -3px" class="card-title">{{recipe.title}}</h5>
                 <div class="stars-outer">
-                    <div class="stars-inner" :style="{'width': Stars}"></div>
+                    <div class="stars-inner" :style="{'width': rating}"></div>
                 </div>
                 <h6></h6>
                 <Chip style="margin-top: -10px" :text="recipe.Tag[0]" :BG="recipe.Tag[1]"/>
@@ -37,7 +37,7 @@ export default {
     },
     data() {
         return {
-            Stars: String,
+            rating: String,
         }
     },
     components: {
@@ -53,9 +53,10 @@ export default {
         }
     },
     created() {
-        const starPercentage = (this.recipe.stars / 5) *100;
+        let averageStar = this.recipe.stars/this.recipe.ratedBy;
+        const starPercentage = (averageStar / 5) *100;
         const starPercentageRounded = `${Math.round(starPercentage / 10) * 10}%`;
-        this.Stars = starPercentageRounded;
+        this.rating = starPercentageRounded;
     },
 
 }
