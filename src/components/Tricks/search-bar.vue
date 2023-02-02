@@ -10,6 +10,13 @@
 <script>
 export default {
     name: "Seachbar",
+    emits:["search"],
+    methods:{
+        search(){
+            const bar = document.getElementById('searchbar').value.toLowerCase();
+            this.$emit('search', bar)
+        }
+    }
 }
 </script>
 

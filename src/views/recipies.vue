@@ -27,8 +27,6 @@ export default {
             tags: [],
             all_recipies: [],
             recipies: [],
-            id: this.$route.params.id,
-            inside: false,
         }
     },
     methods: {
@@ -49,16 +47,6 @@ export default {
     }
     },
     created() {
-        /* db.collection("Food recipies").doc("Food list").collection("food").doc("pancakes with chocolate and almonds").set({
-            title: "Pancakes with chocolate and almond",
-            img: "https://photos.app.goo.gl/XeTFThhmpHGLzz8F7",
-            desc: "What is better than starting your day with a great breakfast? if you have skiness almonds and are a chocolate enthusiast then todays recipe is a-must! enjoy your morning with pancakes plunged in the finest chocolate  and almonds",
-            stars: 4,
-            Time: "15min",
-            Tag: ["Breakfast", "#1bc8c8"],
-            difficulty: ["Easy","Forestgreen"] //this.recipe.difficulty[1]
-        }) */
-        
         db.collection("FoodTags").get().then((Snapshots) => {
             Snapshots.forEach((doc) => {
                 this.tags.push(doc.data())

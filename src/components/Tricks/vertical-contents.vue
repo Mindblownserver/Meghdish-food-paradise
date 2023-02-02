@@ -1,22 +1,22 @@
 <template>
     <div class="container mb-5 mt-5" v-if="IsLarge">
-        <div class="row justify-content-center" v-for="(recipe,index) in recipies" :key="index">
-            <BigRecipyCard :recipe="recipe"/>
+        <div class="row justify-content-center" v-for="(trick,index) in tricks" :key="index">
+            <BigTrickCard :trick="trick"/>
             
         </div>
     </div>
-    <div class="container mb-5 mt-5" v-else>
-        <div class="row justify-content-center" v-for="(recipe,index) in recipies" :key="index">
-            <SmallRecipeCard :recipe="recipe"/>
+    <!-- <div class="container mb-5 mt-5" v-else>
+        <div class="row justify-content-center" v-for="(trick,index) in tricks" :key="index">
+            <SmallRecipeCard :trick="tricks"/>
         </div>
-    </div>
+    </div> -->
     
 </template>
 
 
 <script>
-import BigRecipyCard from "@/components/Recipies/BigFoodRecipyCard.vue"
-import SmallRecipeCard from "@/components/SmallFoodRecipyCard.vue"
+import BigTrickCard from "@/components/Tricks/BigFoodTricksCard.vue"
+// import SmallRecipeCard from "@/components/SmallFoodRecipyCard.vue"
 export default {
     data(){
         return{
@@ -25,19 +25,17 @@ export default {
     },
     emits: ["filter"],
     props: {
-        recipies: Array,
+        tricks: Array,
     },
     components: {
-        BigRecipyCard,
-        SmallRecipeCard,
+        BigTrickCard,
+        // SmallRecipeCard,
     },
     created() {
         if (window.screen.width < 1200){
-            console.log("Small")
             this.IsLarge = false
         }
         else{
-            console.log("Large")
             this.IsLarge = true
         }
     },
