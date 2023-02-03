@@ -1,7 +1,7 @@
 <template>
     <div class="card">
         <div class="title">
-            <h3 class="mini_title">How's the recipe?</h3>
+            <h3 class="mini_title">How's the trick?</h3>
         </div>
             <div class="container">
                 <div class="post">
@@ -34,7 +34,7 @@
 
 <script>
 export default {
-    name: 'RateRecipe',
+    name: 'rateTrick',
     emits: ["SubmitRating"],
     methods:{
       Rating(){
@@ -62,7 +62,6 @@ export default {
           star = 1;
         }
         this.$emit("SubmitRating",star,feedback);
-        // Message for the future, you must emit the number of stars rated to the parent component aka the contents!
       }
   }
 }

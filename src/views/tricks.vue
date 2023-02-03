@@ -6,20 +6,20 @@
     <Seachbar @search="search"/>
   </div>
   <div>
-    <VerticalContent :tricks="tricks"/>
+    <verticalContents :tricks="tricks"/>
   </div>
 </template>
 <script>
 import Seachbar from "@/components/Tricks/search-bar.vue"
 import TrickBackgroundComponents from "@/components/Tricks/trick-search-bg.vue"
-import VerticalContent from "@/components/Tricks/vertical-contents.vue"
+import verticalContents from "@/components/Tricks/vertical-contents.vue"
 import db from "../fb.js"
 export default {
   name: "Tricks",
   components:{
     TrickBackgroundComponents,
     Seachbar,
-    VerticalContent
+    verticalContents
   },
   data(){
         return{
@@ -31,9 +31,11 @@ export default {
     db.collection("Food Tricks").doc("Trick list").collection("trick").get().then((Snapshots) => {
             Snapshots.forEach((doc) => {
                 this.all_tricks.push(doc.data())
-                console.log("Gotcha fam")
+                this.tricks.push(doc.data())
+                // console.log("Gotcha fam")
             })
         })
+    
   },
   methods:{
     search(text){

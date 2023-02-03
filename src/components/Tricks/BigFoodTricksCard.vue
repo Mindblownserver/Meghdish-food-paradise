@@ -12,14 +12,14 @@
                     </div>
                 </div>
                 <p class="Desc">{{snippet(trick.desc)}}</p>
-                <div class="Other Content" style="margin-bottom: 10px">
+                <div class="Other Content">
                     <span>Difficulty: </span>
                     <span :style="{'color': trick.difficulty[1]}">{{trick.difficulty[0]}}</span>
                 </div>
                 <h6>Total time:</h6>
                 
-                <h6 :style="{color: trick.Tag[1]}">{{trick.Time}} min</h6>
-                <button @click="pushToTrick" class="btn" :style="{'background-color': trick.Tag[1]}"> View recipe <i class="fa fa-arrow-right"></i></button>
+                <h6 :style="{'color': trick.difficulty[1]}">{{trick.Time}} min</h6>
+                <button @click="pushToTrick" class="btn" :style="{'background-color': trick.difficulty[1]}"> View recipe <i class="fa fa-arrow-right"></i></button>
             </div>
             <!-- <div id="text" class="col">
                 <button type="submit" class="save"><i class="fa-regular fa-bookmark" style="margin-right: 20px"></i></button>
@@ -39,16 +39,13 @@ export default {
             rating: String,
         }
     },
-    components: {
-        Chip,
-    },
     methods: {
         snippet(value){
-            return value.slice (0,50) + ' ...'
+            return value.slice (0,100) + ' ...'
         },
         pushToTrick(){
-            let trick = this.trick.title;
-            this.$router.push({name:`trick` , query:{data: trick} })
+            let Trick = this.trick.title;
+            this.$router.push({name:`trick` , query:{data: Trick} })
         }
     },
     created() {

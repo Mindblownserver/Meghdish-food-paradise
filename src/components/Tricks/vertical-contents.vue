@@ -18,6 +18,7 @@
 import BigTrickCard from "@/components/Tricks/BigFoodTricksCard.vue"
 // import SmallRecipeCard from "@/components/SmallFoodRecipyCard.vue"
 export default {
+    name: "verticalContents",
     data(){
         return{
             IsLarge: true,
@@ -32,6 +33,7 @@ export default {
         // SmallRecipeCard,
     },
     created() {
+        console.log(this.tricks)
         if (window.screen.width < 1200){
             this.IsLarge = false
         }

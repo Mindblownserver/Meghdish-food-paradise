@@ -4,7 +4,7 @@
         <ul class="middle">
           <li class="right "><a href="/">Home</a></li>
           <li class="right "><a href="/recipes/all">Recipes</a></li>
-          <li class="right "><a href="/tricks">Tricks</a></li>
+          <li class="right "><a href="/tricks/all">Tricks</a></li>
           <li class="right "><a href="/about">About</a></li>
         </ul>
         

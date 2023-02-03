@@ -10,7 +10,7 @@
 
 
 <script>
-import Contents from "../components/recipe/contents.vue"
+import Contents from "@/components/recipe/contents.vue"
 import db from "../fb"
 import 'firebase/auth';
 import firebase from 'firebase/app';

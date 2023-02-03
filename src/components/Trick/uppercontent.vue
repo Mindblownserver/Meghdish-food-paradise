@@ -4,28 +4,27 @@
         <Transition mode="in-out" appear name="slide-fade">
           <section  class="recipe-hero card">
             <img
-              :src="recipe.image"
+              :src="trick.image"
               alt="insert picture"
               class="img recipe-hero-img"/>
             <article class="recipe-info" style="text-align:start;">
-              <h2>{{recipe.title}}</h2>
-              <Chip :text="recipe.Tag[0]" :BG="recipe.Tag[1]"/>
+              <h2>{{trick.title}}</h2>
               <p v-html="compiledMarkdown"></p>
               <div class="recipe-icons">
                 <article>
                   <i class="far fa-star"></i>
                   <h5>rating</h5>
-                  <p>{{recipe.stars}}</p>
+                  <p>{{trick.stars}}</p>
                 </article>
                 <article>
                   <i class="far fa-clock"></i>
                   <h5>cook time</h5>
-                  <p>{{recipe.Time}} min.</p>
+                  <p>{{trick.Time}} min.</p>
                 </article>
                 <article>
                   <i class="far fa-smile"></i>
                   <h5>difficulty</h5>
-                  <p :style="{color: recipe.difficulty[1]}">{{recipe.difficulty[0]}}</p>
+                  <p :style="{color: trick.difficulty[1]}">{{trick.difficulty[0]}}</p>
                 </article>
               </div>
             </article>
@@ -37,7 +36,7 @@
           <article class="card">
             <h4>Instructions</h4>
             <!-- single instruction -->
-            <div class="single-instruction" v-for="(instruction, index) in recipe.instructions" :key="index">
+            <div class="single-instruction" v-for="(instruction, index) in trick.instructions" :key="index">
 							<header>
 								<p>step {{index+1}}</p>
 								<div></div>
@@ -50,8 +49,8 @@
           <Transition name="ToLeft" appear mode="in-out">
           <article class="second-column card">
             <div>
-              <h4>Ingredients</h4>
-              <div v-for="(ingridient,index) in recipe.ingridients" :key="index">
+              <h4>Components</h4>
+              <div v-for="(ingridient,index) in trick.ingridients" :key="index">
 								<p class="single-ingredient">{{ingridient}}</p>
 							</div>
             </div>
@@ -64,19 +63,15 @@
 </template>
 
 <script>
-import Chip from "@/components/chip.vue"
 import marked from "marked"
 export default {
     name: 'uppercontent',
     props:{
-      recipe: Object,
+      trick: Object,
     },
-    components: {
-			Chip
-		},
     computed: { // In computed, the methode compiledMarkdown occures whenever description is changed!
 				compiledMarkdown: function() {
-						return marked(this.recipe.desc); // Make some steps marked
+						return marked(this.trick.desc); // Make some steps marked
 				}
 		},
   }
