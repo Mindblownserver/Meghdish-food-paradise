@@ -22,9 +22,15 @@
 
                     </div>
                     <div class="input">
-                        <p>Don't have an account? <a href="/signin">Sign up</a></p>
+                        <p>Don't have an account? <a href="/signup">Sign up</a></p>
                     </div>
+                    <h4>Sign up with social media</h4>
+                    <ul class="sci">
+                        <li @click="signInFacebook"><i class="fab fa-facebook-f"></i></li>
+                        <li @click="signInGoogle"><i class="fab fa-google"></i></li>
+                    </ul>
                 </form>
+                
             </div>
         </div>
     </section>
@@ -52,7 +58,34 @@ export default {
                     alert(error.message)
                 })
             })
-        }
+        },
+        async signInGoogle(){
+            var provider = new firebase.auth.GoogleAuthProvider();
+            const auth = firebase.auth()
+            await auth.setPersistence(this.checkbox ? firebase.auth.Auth.Persistence.LOCAL : firebase.auth.Auth.Persistence.SESSION).then(()=>{
+                auth.signInWithPopup(provider).then((result) => {
+                    var user = result.user;
+                    alert(`Welcome back ${user.displayName} :D`);
+                }).catch((error) => {
+                    console.log(error.code);
+                    alert(error.message);
+                });
+            });
+            this.$router.replace({ path: '/' }); 
+        },
+        async signInFacebook(){
+            var provider = new firebase.auth.FacebookAuthProvider();
+            const auth = firebase.auth();
+            await auth.signInWithPopup(provider).then((result) => {
+                var user = result.user;
+                alert(`Welcome back ${user.displayName} :D`);
+            })
+            .catch((error) => {
+                console.log(error.code);
+                alert(error.message);
+            });
+            this.$router.replace({ path: '/' }); 
+        } 
     },
 
 
@@ -157,19 +190,19 @@ section .content .form .remember{
     font-weight: 400;
     font-size: 14px;
 }
-section .content .form h3{
-    color:rgb(228, 99, 39);
+section .content .form h4{
+    color:var(--main-web-color);
     text-align: center;
     margin: 80px 0 10px;
     font-weight: 500;
     
 }
-section .content .form .sci{
+.sci{
     display: flex;
     justify-content: center;
     align-items: center;
 }
-section .content .form .sci li{
+section .content .sci li{
     list-style: none;
     width: 50px;
     height: 50px;

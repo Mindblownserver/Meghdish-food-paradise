@@ -12,7 +12,13 @@
               <p v-html="compiledMarkdown"></p>
               <div class="recipe-icons">
                 <article>
-                  <i class="far fa-star"></i>
+                  <div v-if="isFiveStars">
+                    <i class="fa-solid fa-star"></i>
+                  </div>
+                  <div v-else>
+                    <i class="fa-regular fa-star"></i>
+                  </div>
+                  
                   <h5>rating</h5>
                   <p>{{trick.stars}}</p>
                 </article>
@@ -69,11 +75,21 @@ export default {
     props:{
       trick: Object,
     },
+    data(){
+        return{
+            isFiveStar: false
+        }
+    },
     computed: { // In computed, the methode compiledMarkdown occures whenever description is changed!
 				compiledMarkdown: function() {
 						return marked(this.trick.desc); // Make some steps marked
 				}
-		},
+	},
+    created(){
+        if(this.trick.stars ==5){
+            this.isFiveStar == true
+        }
+    }
   }
 </script>
 

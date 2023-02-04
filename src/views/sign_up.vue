@@ -64,8 +64,8 @@
                 </form>
                 <h4>Sign up with social media</h4>
                 <ul class="sci">
-                    <li><i class="fab fa-facebook-f"></i></li>
-                    <li><i class="fab fa-google"></i></li>
+                    <li @click="signInFacebook"><i class="fab fa-facebook-f"></i></li>
+                    <li @click="signInGoogle"><i class="fab fa-google"></i></li>
                 </ul>
             </div>
         </div>
@@ -120,7 +120,31 @@ export default {
             else{
                 alert(`The password you typed doesn't match what you confirmed. Expected => ${this.Password} but got => ${this.confirm}`)
             }
-        }
+        },
+        async signInGoogle(){
+            var provider = new firebase.auth.GoogleAuthProvider();
+            await firebase.auth().signInWithPopup(provider).then((result) => {
+                var user = result.user;
+                alert(`Welcome ${user.displayName}. Time to enhance your cooking skills!`);
+            }).catch((error) => {
+                console.log(error.code);
+                alert(error.message);
+            });
+            this.$router.replace({ path: '/' });
+        },
+        async signInFacebook(){
+            var provider = new firebase.auth.FacebookAuthProvider();
+            const auth = firebase.auth();
+            await auth.signInWithPopup(provider).then((result) => {
+                var user = result.user;
+                alert(`Welcome ${user.displayName}. Time to enhance your cooking skills!`);
+            })
+            .catch((error) => {
+                console.log(error.code);
+                alert(error.message);
+            });
+            this.$router.replace({ path: '/' }); 
+        } 
     },
 
 }
@@ -223,7 +247,7 @@ section .content .form .remember{
     font-size: 14px;
 }
 section .content .form h4{
-    color:rgb(228, 99, 39);
+    color:var(--main-web-color);
     text-align: center;
     margin: 80px 0 10px;
     font-weight: 500;
