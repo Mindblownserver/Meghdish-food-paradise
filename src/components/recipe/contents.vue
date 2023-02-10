@@ -42,6 +42,9 @@ export default {
                 });
 
             }
+            else{
+              alert("You must be signed in to rate this!"); 
+            }
         })
         // Now you need to update the ratedBy and stars field in firebase + send email notifying admin of the rated post
       },

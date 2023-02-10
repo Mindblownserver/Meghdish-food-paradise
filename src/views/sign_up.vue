@@ -122,6 +122,7 @@ export default {
             }
         },
         async signInGoogle(){
+            // please add a way to get their favourite food category
             var provider = new firebase.auth.GoogleAuthProvider();
             await firebase.auth().signInWithPopup(provider).then((result) => {
                 var user = result.user;

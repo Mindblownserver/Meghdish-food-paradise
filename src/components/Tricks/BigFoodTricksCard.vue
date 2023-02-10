@@ -11,7 +11,7 @@
                         <div class="stars-inner" :style="{'width': rating}"></div>
                     </div>
                 </div>
-                <p class="Desc">{{snippet(trick.desc)}}</p>
+                <p v-html="MarkedDesc" class="Desc"></p>
                 <div class="Other Content">
                     <span>Difficulty: </span>
                     <span :style="{'color': trick.difficulty[1]}">{{trick.difficulty[0]}}</span>
@@ -39,6 +39,11 @@ export default {
             rating: String,
         }
     },
+    computed: { // In computed, the methode compiledMarkdown occures whenever description is changed!
+				MarkedDesc: function() {
+						return marked(this.snippet(this.trick.description)); // Make some steps marked
+				},
+		},
     methods: {
         snippet(value){
             return value.slice (0,100) + ' ...'
