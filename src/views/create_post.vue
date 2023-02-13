@@ -38,7 +38,7 @@
               <input class="form-check-input" type="radio" name="inlineRadioOptions" id="6" value="Breakfast">
               <label class="form-check-label" for="inlineRadio2">Breakfast</label>
             </div>
-            <div class="form-check form-check-inline">
+            <div style="display:none;" class="form-check form-check-inline">
               <input class="form-check-input" type="radio" name="inlineRadioOptions" id="7" value="">
               <label class="form-check-label" for="inlineRadio2">Trick</label>
             </div>
@@ -203,7 +203,7 @@ export default {
         let FdTagsColors = ["#B9721F","#6A2FE8","#DC1C1C","#EC994B","#d9c007","#0D8F21","#1BC8C8",""]
         let radios = document.getElementsByClassName("form-check-input")
         let i = 0
-        while (i<radios.length) {
+        while (i<radios.length-1) {
           if (radios[i].checked){
             break;
           }
