@@ -19,7 +19,7 @@
                 <h6>Total time:</h6>
                 
                 <h6 :style="{color: recipe.Tag[1]}">{{recipe.Time}} min</h6>
-                <Chip :text="recipe.Tag[0]" :BG="recipe.Tag[1]" @click="filter_food(recipe.Tag[0])"/>
+                <Chip class="clickable" :text="recipe.Tag[0]" :BG="recipe.Tag[1]" @click="filter_food(recipe.Tag[0])"/>
                 <button @click="pushToRecipe" class="btn" :style="{'background-color': recipe.Tag[1]}"> View recipe <i class="fa fa-arrow-right"></i></button>
             </div>
             <!-- <div id="text" class="col">
@@ -166,6 +166,9 @@ img{
 }
 .card:hover img{
     transform: scale(1.2);
+}
+.clickable{
+    cursor: pointer;
 }
 /* .save{
     border-radius: 20px;
