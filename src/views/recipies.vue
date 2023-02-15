@@ -46,7 +46,7 @@ export default {
         }
     }
     },
-    created() {
+    async created() {
         db.collection("FoodTags").get().then((Snapshots) => {
             Snapshots.forEach((doc) => {
                 this.tags.push(doc.data())

@@ -28,7 +28,7 @@
 
 <script>
 import Chip from "@/components/chip.vue"
-
+import marked from "marked"
 export default {
     name: "SmallRecipeCard",
     props: {
@@ -45,7 +45,7 @@ export default {
     },
     computed: { // In computed, the methode compiledMarkdown occures whenever description is changed!
 				MarkedDesc: function() {
-						return marked(this.snippet(this.recipe.description)); // Make some steps marked
+						return marked(this.snippet(this.recipe.desc)); // Make some steps marked
 				},
 		},
     methods: {

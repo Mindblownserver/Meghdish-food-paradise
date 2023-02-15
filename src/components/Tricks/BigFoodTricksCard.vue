@@ -29,6 +29,7 @@
 </template>
 
 <script>
+import marked from "marked"
 export default {
     name: "BigTrickCard",
     props: {
@@ -41,7 +42,7 @@ export default {
     },
     computed: { // In computed, the methode compiledMarkdown occures whenever description is changed!
 				MarkedDesc: function() {
-						return marked(this.snippet(this.trick.description)); // Make some steps marked
+						return marked(this.snippet(this.trick.desc)); // Make some steps marked
 				},
 		},
     methods: {

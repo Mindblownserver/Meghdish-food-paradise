@@ -20,7 +20,7 @@ export default {
   components: {
     HomeContents,
   },
-  created() {
+  async created() {
     firebase.auth().onAuthStateChanged((user) => {
       if (!user){
          // Trying to either put the default preference section or make it personal if the user is logged in!
@@ -32,7 +32,7 @@ export default {
         });
       }
       else{
-        let favCategoryUser = db.doc(`/Food recipies/favourite Category/user/${user.uid}`);
+        let favCategoryUser =  db.doc(`/Food recipies/favourite Category/user/${user.uid}`);
         favCategoryUser.get().then(doc=>{ 
           db.collection("Food recipies").doc("Food list").collection("food").where("Tag","array-contains",doc.data().category).limit(6).get().then((snapshots)=>{
           snapshots.forEach((snapshot) => {
